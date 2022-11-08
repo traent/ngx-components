@@ -1,0 +1,64 @@
+@use 'sass:list';
+@use 'sass:map';
+
+
+$sizes: 'xxxs', 'xxs', 'xs', 'sm', 'md', 'lg', 'xl';
+
+$right-content-margin-left: 8px 8px 8px 12px 12px 16px 24px;
+$first-line-font-size: 14px 14px 16px 14px 18px 24px 32px;
+$first-line-font-family: inherit inherit inherit var(--font-family-brand) var(--font-family-brand) var(--font-family-brand) var(--font-family-brand);
+$second-line-font-size: null null null 12px 12px 14px 16px;
+$validation-margin: 4px 4px 4px 4px 4px 4px 8px;
+
+ngx-t3-user-identity,
+ngx-t3-organization-identity,
+ngx-t3-member-identity {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &.xl {
+    align-items: end;
+    .right-content {
+      transform: translateY(-4px);
+    }
+  }
+
+  &.has-border {
+    border: 1px solid theme("colors.neutral.200");
+    border-radius: 8px;
+    padding: 8px;
+    background-color: white;
+    box-sizing: border-box;
+  }
+
+  .first-line {
+    display: flex;
+    align-items: center;
+  }
+
+  .right-content {
+    overflow: hidden;
+  }
+
+  @each $size in $sizes {
+    &.#{$size} {
+      $i: index($sizes, $size);
+      .right-content {
+        margin-left: nth($right-content-margin-left, $i);
+      }
+      .first-line {
+        font-size: nth($first-line-font-size, $i);
+        font-family: nth($first-line-font-family, $i);
+      }
+      .second-line {
+        font-size: nth($second-line-font-size, $i);
+      }
+      .validation {
+        margin-left: nth($validation-margin, $i);
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,46 @@
+$_xxxs: 14px;
+$_xxs: 16px;
+$_xs: 24px;
+$_sm: 32px;
+$_md: 48px;
+$_lg: 72px;
+$_xl: 102px;
+
+ngx-t3-avatar {
+  background: #fff8;
+  border: 1px solid theme("colors.neutral.100");
+  box-sizing: border-box;
+}
+
+ngx-t3-avatar,
+ngx-t3-avatar-group > .avatar-more {
+  &.xxxs {
+    display: flex;
+    height: $_xxxs;
+    width: $_xxxs;
+  }
+  &.xxs {
+    height: $_xxs;
+    width: $_xxs;
+  }
+  &.xs {
+    height: $_xs;
+    width: $_xs;
+  }
+  &.sm {
+    height: $_sm;
+    width: $_sm;
+  }
+  &.md {
+    height: $_md;
+    width: $_md;
+  }
+  &.lg {
+    height: $_lg;
+    width: $_lg;
+  }
+  &.xl {
+    height: $_xl;
+    width: $_xl;
+  }
+}

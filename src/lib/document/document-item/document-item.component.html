@@ -1,0 +1,21 @@
+<div
+  *ngIf="isDataReady; else skeletonTemplate"
+  class="opal-s-full opal-mx-2 opal-fx-row opal-fx-align-center">
+  <img
+    class="opal-s-8 opal-mr-3"
+    src="/assets/images/thumbnail.svg">
+
+  <div class="opal-ml-2 opal-fx-g-1 opal-ellipsed opal-h-8">
+    <div class="opal-h6 opal-ellipsed">{{ name || redactedLabel }}</div>
+    <div
+      *ngIf="createdAt"
+      class="opal-body-3 opal-text-grey-400 opal-ellipsed">{{ createdAt | date : 'dd MMM YYYY, HH:mm' }}</div>
+  </div>
+
+  <ng-content select="[documentMenu]"></ng-content>
+</div>
+
+<ng-template #skeletonTemplate>
+  <ngx-t3-skeleton class="opal-s-full">
+  </ngx-t3-skeleton>
+</ng-template>

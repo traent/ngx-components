@@ -1,0 +1,17 @@
+<div
+  *ngIf="resource"
+  class="image-viewer">
+  <div
+    class="image-viewer-inner"
+    [style.width.px]="(zoom * initialImageWidth) + (imagePadding * 2)">
+    <img
+      [style.padding.px]="imagePadding"
+      [src]="resource.safe"
+      (load)="contentLoad.emit()"
+      (error)="contentError.emit()">
+  </div>
+</div>
+
+<div class="toolbar-container opal-pos-abs opal-fx-col opal-fx-g-1 opal-fx-align-center opal-w-full opal-border-box">
+  <ng-content select="[toolbar]"></ng-content>
+</div>

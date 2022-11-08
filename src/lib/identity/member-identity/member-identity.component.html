@@ -1,0 +1,28 @@
+<ngx-t3-member-avatar-group
+  [memberSrc]="memberSrc"
+  [organizationSrc]="organizationSrc"
+  [size]="size"
+  [squared]="squared"></ngx-t3-member-avatar-group>
+
+<div class="right-content opal-overflow-hidden">
+  <ng-container *ngIf="isDataReady; else skeletonTemplate">
+    <ng-container *ngIf="!isRedacted; else redactedTemplate">
+      <div class="first-line">
+        <div class="opal-ellipsed">{{ firstLine }}</div>
+        <div class="validation">
+          <ng-content select="ngx-t3-identity-validation"></ng-content>
+        </div>
+      </div>
+      <div
+        *ngIf="secondLine"
+        class="second-line">{{ secondLine }}</div>
+    </ng-container>
+    <ng-template #redactedTemplate>
+      <div class="first-line">{{ anonymousLabel }}</div>
+    </ng-template>
+  </ng-container>
+  <ng-template #skeletonTemplate>
+    <ngx-t3-skeleton class="opal-h-3 opal-w-50"></ngx-t3-skeleton>
+    <ngx-t3-skeleton class="opal-h-3 opal-w-50"></ngx-t3-skeleton>
+  </ng-template>
+</div>

@@ -1,0 +1,9 @@
+mat-form-field {
+  --mat-form-field-min-height: 35px
+}
+
+::ng-deep {
+  mat-radio-button .mat-radio-label-content {
+    width: 100%;
+  }
+}

@@ -1,0 +1,19 @@
+<mat-icon
+  *ngIf="icon?.material as iconName"
+  [class]="iconClass"
+  [style.transform]="icon?.transform || null">
+  {{ iconName }}
+</mat-icon>
+
+<mat-icon
+  *ngIf="!icon?.material && icon?.custom as iconName"
+  [class]="iconClass"
+  [style.transform]="icon?.transform || null"
+  [svgIcon]="iconName">
+</mat-icon>
+
+<mat-icon
+  *ngIf="!icon?.material && !icon?.custom"
+  [class]="iconClass">
+  broken_image
+</mat-icon>

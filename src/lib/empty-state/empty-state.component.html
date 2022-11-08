@@ -1,0 +1,17 @@
+<img
+  *ngIf="imgSrc"
+  [src]="imgSrc">
+
+<div
+  *ngIf="title"
+  class="title">
+  {{ title }}
+</div>
+
+<div
+  *ngIf="description"
+  class="description">
+  {{ description }}
+</div>
+
+<ng-content></ng-content>

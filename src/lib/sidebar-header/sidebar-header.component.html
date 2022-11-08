@@ -1,0 +1,53 @@
+<ng-container *ngIf="backToLabel">
+  <span
+    class="back-to opal-ellipsed opal-text-grey-400 opal-mb-3"
+    [ngClass]="backToElement"
+    (click)="backTo.emit()">
+    {{ backToLabel }}
+  </span>
+</ng-container>
+
+<div
+  *ngIf="label"
+  class="label-container"
+  [class.label-ellipsed]="ellipsed"
+  [ngClass]="element"
+  [ngSwitch]="size">
+  <h1
+    *ngSwitchCase="'h1'"
+    [ngClass]="element">
+    <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
+  </h1>
+  <h2
+    *ngSwitchCase="'h2'"
+    [ngClass]="element">
+    <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
+  </h2>
+  <h3
+    *ngSwitchCase="'h3'"
+    [ngClass]="element">
+    <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
+  </h3>
+  <h4
+    *ngSwitchCase="'h4'"
+    [ngClass]="element">
+    <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
+  </h4>
+  <h5
+    *ngSwitchCase="'h5'"
+    [ngClass]="element">
+    <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
+  </h5>
+  <h6
+    *ngSwitchCase="'h6'"
+    [ngClass]="element">
+    <ng-container *ngTemplateOutlet="labelTemplate"></ng-container>
+  </h6>
+  <div class="context-menu">
+    <ng-content select="[context-menu]"></ng-content>
+  </div>
+</div>
+
+<ng-template #labelTemplate>
+  <span [class.opal-ellipsed]="ellipsed">{{ label }}</span>
+</ng-template>

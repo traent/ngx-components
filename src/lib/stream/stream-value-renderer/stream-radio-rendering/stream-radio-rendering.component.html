@@ -1,0 +1,20 @@
+<div
+  *ngFor="let option of allowedValues"
+  class="opal-h-9 opal-fx-row opal-fx-align-center">
+  <mat-icon
+    *ngIf="(value | exported) && option === value; else radioOff"
+    class="opal-s-6 opal-pr-2"
+    svgIcon="radio-on"></mat-icon>
+
+  <ng-template #radioOff>
+    <mat-icon
+      class="opal-s-6 opal-pr-2"
+      svgIcon="radio-off"></mat-icon>
+  </ng-template>
+
+  <span>{{ option }}</span>
+</div>
+
+<span
+  *ngIf="value | redacted"
+  class="opal-text-grey-400 opal-text-style-italic">{{ redactedValueLabel }}</span>

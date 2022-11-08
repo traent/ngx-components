@@ -1,0 +1,29 @@
+:host {
+  --ngx-t3-document-card-height: 200px;
+  --ngx-t3-document-card-preview-height: 135px;
+  --ngx-t3-document-card-placeholder-cursor: pointer;
+
+  height: var(--ngx-t3-document-card-height);
+  width: 100%;
+
+  > :first-child {
+    border-color: var(--opal-grey-200, white);
+  }
+
+  ngx-t3-skeleton {
+    background-color: var(--opal-grey-100, white) !important;
+  }
+
+  .placeholder-container {
+    cursor: var(--ngx-t3-document-card-placeholder-cursor);
+  }
+}
+
+.preview-container {
+  height: var(--ngx-t3-document-card-preview-height);
+  position: relative;
+}
+
+.document-name {
+  font-family: 'DM Sans';
+}

@@ -1,0 +1,62 @@
+<ng-container [ngSwitch]="rendererType">
+
+  <ng-container *ngSwitchCase="'radio'">
+    <ngx-t3-stream-radio-rendering
+      *ngIf="innerType === 'dropdown'; else defaultRendering"
+      [value]="value"
+      [allowedValues]="configuration.allowedValues"></ngx-t3-stream-radio-rendering>
+  </ng-container>
+
+  <ng-container *ngSwitchDefault>
+    <ng-container [ngTemplateOutlet]="defaultRendering"></ng-container>
+  </ng-container>
+
+</ng-container>
+
+<ng-template #defaultRendering>
+
+  <ng-container *ngIf="value | exported; else redactedValue">
+    <ng-container *ngIf="value === undefined && innerType !== StreamEntryType.Boolean">
+      <span class="opal-d-block opal-text-grey-400 opal-text-style-italic">{{ labels.noValueLabel }}</span>
+    </ng-container>
+
+    <ng-container *ngIf="value !== undefined || innerType === StreamEntryType.Boolean">
+      <div
+        class="opal-w-full"
+        [ngSwitch]="innerType">
+        <div
+          *ngSwitchCase="StreamEntryType.Boolean"
+          class="opal-fx-row opal-fx-align-center">
+          <mat-icon class="opal-s-4 opal-mr-1">
+            {{ value === true ? 'check_box' : 'check_box_outline_blank' }}
+          </mat-icon>
+          {{ (value ? labels.truthyCheckboxLabel : labels.falsyCheckboxLabel) | titlecase }}
+        </div>
+
+        <ng-container *ngSwitchCase="StreamEntryType.Uri">
+          <a
+            *ngIf="value | apply : formatStreamValue : StreamEntryType.Uri : configuration as formattedValue"
+            class="collapsed"
+            target="_blank"
+            [href]="value"
+            [matTooltip]="labels.linkClickTooltipLabel">
+            {{ value }}
+          </a>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="StreamEntryType.Date">
+          {{ value | date: 'd MMMM yyy' }}
+        </ng-container>
+
+        <ng-container *ngSwitchDefault>
+          {{ value | apply : formatStreamValue : innerType : configuration }}
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #redactedValue>
+    <span class="opal-text-grey-400 opal-text-style-italic">{{ labels.redactedValueLabel }}</span>
+  </ng-template>
+
+</ng-template>

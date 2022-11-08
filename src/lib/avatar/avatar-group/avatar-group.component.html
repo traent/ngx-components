@@ -1,0 +1,8 @@
+<ng-content></ng-content>
+<div
+  *ngIf="limit !== undefined && count - limit > 0"
+  class="avatar-more"
+  [class]="size"
+  (click)="countClick.emit()">
+  +{{ count - limit }}
+</div>

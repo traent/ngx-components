@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+
+  img {
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 18px;
+    color: var(--opal-grey-400);
+  }
+
+  .description {
+    color: var(--opal-grey-400);
+  }
+}

@@ -1,0 +1,16 @@
+
+:host {
+  --item-min-width: 250px;
+  min-height: 48px;
+  min-width: var(--item-min-width);
+  display: flex;
+  align-items: center;
+  background-color: var(--opal-white, white);
+  border: 1px solid var(--opal-grey-200);
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  ngx-t3-skeleton {
+    background-color: var(--opal-grey-100, grey) !important;
+  }
+}

@@ -1,0 +1,62 @@
+<div
+  *ngIf="isDataReady; else skeletonTemplate"
+  class="opal-fx-row opal-fx-align-center opal-body-2">
+  <ngx-t3-tag
+    *ngIf="extension"
+    class="opal-bg-blue-200"
+    [size]="size">
+    {{ extension }}
+  </ngx-t3-tag>
+  <div class="opal-fx-row opal-fx-center opal-text-grey-400 opal-body-2">
+    <div
+      *ngIf="versionsCount !== null && versionsCount !== undefined"
+      class="opal-fx-row opal-fx-align-center detail">
+      <mat-icon
+        class="opal-mr-2px"
+        [matTooltip]="tooltips.versionsTooltip">
+        history
+      </mat-icon>
+      {{ versionsCount || 0 }}
+    </div>
+    <div
+      *ngIf="streamsCount !== null && streamsCount !== undefined"
+      class="opal-fx-row opal-fx-align-center detail">
+      <mat-icon
+        class="stream-icon opal-mr-2px"
+        svgIcon="stream-overview"
+        [matTooltip]="tooltips.streamsTooltip">
+      </mat-icon>
+    {{ streamsCount || 0 }}
+    </div>
+    <div
+      *ngIf="threadsCount !== null && threadsCount !== undefined"
+      class="opal-fx-row opal-fx-align-center detail">
+      <mat-icon
+        class="material-icons-outlined opal-mr-2px"
+        [matTooltip]="tooltips.threadsTooltip">
+        forum
+      </mat-icon>
+      {{ threadsCount || 0 }}
+    </div>
+    <div
+      *ngIf="tagsCount !== null && tagsCount !== undefined"
+      class="opal-fx-row opal-fx-align-center detail">
+      <mat-icon
+        class="material-icons-outlined opal-mr-2px"
+        [matTooltip]="tooltips.tagsTooltip">
+        label
+      </mat-icon>
+      {{ tagsCount || 0 }}
+    </div>
+  </div>
+</div>
+
+<ng-template #skeletonTemplate>
+  <ngx-t3-skeleton
+    class="opal-h-4"
+    [ngClass]="{
+      'w-37': size === 'md',
+      'w-31': size === 'sm'
+    }">
+  </ngx-t3-skeleton>
+</ng-template>

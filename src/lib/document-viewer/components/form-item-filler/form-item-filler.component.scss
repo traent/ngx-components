@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  margin: 24px 0px;
+  border: solid 1px var(--opal-grey-200);
+  border-radius: 8px;
+  background: white;
+
+  &.item-invalid {
+    border-color: var(--opal-warn-500);
+  }
+
+  .heading {
+    height: 30px;
+  }
+
+  .description {
+    padding: 6px 8px;
+  }
+}

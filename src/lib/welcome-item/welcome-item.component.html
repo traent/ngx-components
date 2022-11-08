@@ -1,0 +1,22 @@
+<div class="opal-m-6 opal-fx-row opal-fx-justify-start opal-fx-align-center">
+  <img
+    height="100"
+    [src]="imgPath">
+  <div class="opal-fx-col opal-fx-align-start opal-ml-8 descriptions">
+    <div class="opal-fx-row opal-fx-align-center opal-mb-3">
+      <div
+        class="opal-s-6 opal-fx-center opal-radius-4"
+        [ngClass]="icon?.bgColor ?? ''">
+        <ngx-t3-icon
+          iconClass="opal-s-4"
+          [ngClass]="icon?.textColor ?? ''"
+          [icon]="icon?.name">
+        </ngx-t3-icon>
+      </div>
+      <span class="opal-h4 opal-ml-2">{{ feature?.name }}</span>
+    </div>
+    <span>
+      {{ feature?.desc }}
+    </span>
+  </div>
+</div>

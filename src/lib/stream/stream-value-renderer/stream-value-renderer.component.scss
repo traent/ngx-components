@@ -1,0 +1,18 @@
+:host {
+  --ngx-t3-stream-value-renderer-font-size: 16px;
+  font-size: var(--ngx-t3-stream-value-renderer-font-size);
+
+  &.multiline {
+    > div {
+      word-break: break-word !important;
+    }
+  }
+
+  &:not(.multiline) {
+    > div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

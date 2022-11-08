@@ -1,0 +1,21 @@
+input, select, textarea {
+  display: block;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  outline: var(--opal-accent) 1px solid;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--opal-blue-rgb), 0.25);
+  box-sizing: border-box;
+  font-family: var(--font-family-content);
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input {
+  padding-left: 4px;
+}

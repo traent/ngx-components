@@ -1,0 +1,25 @@
+<div class="opal-fx-row opal-fx-align-center">
+  <ngx-t3-avatar-group>
+    <ngx-t3-avatar
+      [size]="avatarSize"
+      [src]="authorAvatar">
+    </ngx-t3-avatar>
+    <ngx-t3-avatar
+      [size]="avatarSize"
+      [placeholder]="AvatarPlaceholder.Organization"
+      [src]="authorOrganizationLogo">
+    </ngx-t3-avatar>
+  </ngx-t3-avatar-group>
+
+  <div
+    *ngIf="isDataReady; else skeletonNameTemplate"
+    class="opal-ml-2 opal-h6 opal-text-500">
+    {{ authorName || labels.noName }}
+  </div>
+
+  <ng-content #menu></ng-content>
+
+  <ng-template #skeletonNameTemplate>
+    <ngx-t3-skeleton class="opal-ml-2 opal-body-2 opal-w-20 opal-h-3"></ngx-t3-skeleton>
+  </ng-template>
+</div>

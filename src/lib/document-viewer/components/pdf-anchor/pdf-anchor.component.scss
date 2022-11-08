@@ -1,0 +1,22 @@
+.pdf-anchor {
+  position: absolute;
+}
+
+.pdf-point-anchor {
+  position: absolute;
+  cursor: pointer;
+}
+
+.pdf-acrofield-anchor {
+  position: absolute;
+  // Increase click area (prevent annotation underlying click)
+  padding: 4px;
+  margin: -4px;
+}
+
+.phantom {
+  pointer-events: none !important;
+  > * {
+    pointer-events: all;
+  }
+}

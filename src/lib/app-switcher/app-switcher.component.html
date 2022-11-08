@@ -1,0 +1,61 @@
+<div class="opal-fx-row opal-fx-align-center">
+  <button
+    mat-icon-button
+    (click)="isDrawerOpen = !isDrawerOpen; $event.stopPropagation()">
+    <mat-icon>apps</mat-icon>
+  </button>
+  <ng-content select="[app-logo]"></ng-content>
+</div>
+
+<div
+  *ngIf="isDrawerOpen"
+  class="drawer opal-fx-col opal-bg-white opal-radius-8 opal-border-1 opal-border-grey-200 opal-overflow-hidden"
+  [@inOutAnimation]
+  (clickOutside)="isDrawerOpen = false; $event.stopPropagation()">
+
+  <div class="opal-px-4 opal-pt-3 opal-pb-1 opal-overline opal-text-grey-400">Switch to</div>
+
+  <ng-container *ngFor="let props of [this.identityProps, this.organizationsProps, this.eraProps, this.viewerProps]">
+    <a
+      *ngIf="!props.disabled && props.url?.includes('http')"
+      [href]="props.url"
+      class="opal-d-contents"
+      (click)="closeDrawer()">
+      <ng-container *ngTemplateOutlet="appItem; context: { $implicit: props }"></ng-container>
+    </a>
+    <a
+      *ngIf="!props.disabled && props.url && !props.url.includes('http')"
+      [routerLink]="props.url"
+      class="opal-d-contents"
+      (click)="closeDrawer()">
+      <ng-container *ngTemplateOutlet="appItem; context: { $implicit: props }"></ng-container>
+    </a>
+    <ng-container *ngIf="props.disabled || !props.url">
+      <ng-container *ngTemplateOutlet="appItem; context: { $implicit: props }"></ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-content select="[app-footer]"></ng-content>
+
+  <ng-template
+    #appItem
+    let-props>
+    <div
+      class="app-item"
+      [class.disabled]="props.disabled"
+      [class.selected]="props.selected">
+      <div class="icon-wrapper">
+        <ngx-t3-icon
+          *ngIf="props.icon"
+          class="opal-text-traentblue-500"
+          [class.opal-text-grey-400]="props.disabled"
+          [icon]="props.icon"></ngx-t3-icon>
+      </div>
+      <div class="text-wrapper">
+        <h3 class="opal-h5 opal-m-0">{{ props.name }}</h3>
+        <p>{{ props.description }}</p>
+      </div>
+    </div>
+  </ng-template>
+
+</div>

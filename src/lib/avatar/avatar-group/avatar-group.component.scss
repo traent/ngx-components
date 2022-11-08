@@ -1,0 +1,73 @@
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  ::ng-deep {
+    @for $i from 1 through 20 {
+      > :nth-child(#{$i}) {
+        z-index: #{20 - $i};
+      }
+    }
+
+    > :first-child {
+      margin-left: inherit !important;
+    }
+  }
+
+  .avatar-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 12px;
+    background-color: var(--opal-grey-200) !important;
+    color: var(--opal-grey-500);
+    box-shadow: 0px 0px 0px 1px var(--ngx-t3-avatar-border-color, white);
+    margin-left: -8px;
+    border-radius: 50%;
+    cursor: var(--ngx-t3-avatar-more-cursor, default);
+  }
+
+  ::ng-deep ngx-t3-avatar,
+  ::ng-deep .avatar-more {
+    background-color: white;
+
+    &.xxxs {
+      box-shadow: 0px 0px 0px 1px var(--ngx-t3-avatar-border-color, white);
+    }
+    &.xxs, &.xs, &.sm, &.md {
+      box-shadow: 0px 0px 0px 2px var(--ngx-t3-avatar-border-color, white);
+    }
+    &.lg, &.xl {
+      box-shadow: 0px 0px 0px 3px var(--ngx-t3-avatar-border-color, white);
+    }
+  }
+
+  ::ng-deep ngx-t3-avatar:not(:first-child),
+  ::ng-deep .avatar-more {
+    &.xxxs {
+      margin-left: -3px;
+    }
+    &.xxs {
+      margin-left: -1px;
+    }
+    &.xs {
+      margin-left: -2px;
+    }
+    &.sm {
+      margin-left: -4px;
+    }
+    &.md {
+      margin-left: -8px;
+    }
+    &.lg {
+      margin-left: -16px;
+      box-shadow: 0px 0px 0px 2px var(--ngx-t3-avatar-border-color, white);
+    }
+    &.xl {
+      margin-left: -22px;
+      box-shadow: 0px 0px 0px 2px var(--ngx-t3-avatar-border-color, white);
+    }
+  }
+}

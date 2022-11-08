@@ -1,0 +1,56 @@
+<div
+  *ngIf="isDataReady || !showBorder"
+  class="opal-s-full opal-p-2 opal-fx-row opal-fx-align-center opal-border-box"
+  [ngClass]="{ 'opal-border-1 opal-border-grey-200 opal-radius-8 opal-bg-white': showBorder }">
+
+  <ng-content select="[participant]"></ng-content>
+
+  <ng-container *ngIf="isDataReady; else skeletonTemplate">
+    <ng-container *ngIf="(name | exportedAndDefined) || lastEditedAt !== undefined; else noDataTemplate">
+      <div class="opal-ml-3 opal-fx-g-1 opal-ellipsed">
+        <div class="opal-h6 opal-ellipsed">
+          <span *ngIf="name | exportedAndDefined; else redactedName">
+            {{ name }}
+          </span>
+          <ng-template #redactedName>
+            <span class="opal-text-grey-400">Redacted topic</span>
+          </ng-template>
+        </div>
+
+        <div class="opal-fx-row opal-fx-align-center">
+          <div class="opal-body-3 opal-text-600 opal-text-grey-400">
+            {{ lastEditedAt || 'Redacted date information' }}
+          </div>
+          <mat-icon
+            *ngIf="showNotification"
+            class="opal-s-3 opal-ml-2 opal-text-ottanio">
+            circle_outline
+          </mat-icon>
+          <mat-icon
+            *ngIf="resolved"
+            class="opal-text-grey-400 opal-ml-2"
+            svgIcon="thread-solved">
+          </mat-icon>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #skeletonTemplate>
+    <div class="opal-fx-col opal-fx-justify-center opal-ml-3 opal-fx-g-1">
+      <ngx-t3-skeleton class="opal-h-3 opal-w-60"></ngx-t3-skeleton>
+      <ngx-t3-skeleton class="opal-h-2 opal-mt-2 opal-w-16"></ngx-t3-skeleton>
+    </div>
+  </ng-template>
+
+  <ng-content></ng-content>
+</div>
+
+<ngx-t3-skeleton
+  *ngIf="!isDataReady && showBorder"
+  class="opal-s-full opal-radius-8">
+</ngx-t3-skeleton>
+
+<ng-template #noDataTemplate>
+  <div class="opal-h6 opal-ml-3 opal-ellipsed opal-text-grey-400">{{ 'Redacted thread' }}</div>
+</ng-template>

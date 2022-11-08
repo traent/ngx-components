@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+
+  $sizes: 'xs', 'sm', 'md', 'lg';
+  $sizes-px: 12px 16px 20px 24px;
+  $margins: -6px -8px -10px -12px;
+
+  @each $size in $sizes {
+    $i: index($sizes, $size);
+    &.#{$size} {
+      mat-icon {
+        $px: nth($sizes-px, $i);
+        height: $px;
+        width: $px;
+        font-size: $px;
+        margin: 0;
+      }
+
+      mat-icon:nth-child(2) {
+        margin-left: nth($margins, $i) !important;
+      }
+    }
+  }
+
+}
