@@ -1,0 +1,35 @@
+:host {
+  --ngx-t3-search-bar-height: 36px;
+  --ngx-t3-search-bar-outline-bar-width: 1px;
+}
+
+.search-bar {
+  height: var(--ngx-t3-search-bar-height);
+  &.hasBorder {
+    border: var(--ngx-t3-search-bar-outline-bar-width) solid var(--opal-grey-200);
+  }
+  &:focus-within, .has-value {
+    &.hasBorder {
+      border: var(--ngx-t3-search-bar-outline-bar-width) solid black !important;
+    }
+    mat-icon {
+      color: black;
+    }
+  }
+
+  :not(:last-child),  ::ng-deep [afterInput] {
+    margin-right: 8px;
+  }
+
+  > input {
+    border: none;
+    outline: none;
+    flex: 1;
+  }
+  > mat-icon {
+    height: 18px;
+    width: 18px;
+    font-size: 18px;
+    color: var(--opal-grey-400);
+  }
+}

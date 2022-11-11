@@ -1,0 +1,44 @@
+:host {
+  --ngx-t3-tag-font-family: var(--font-family-brand, 'DM Sans', sans-serif);
+  --ngx-t3-tag-color: white;
+
+  $border-radius-md: 4px;
+  $border-radius-sm: 2px;
+  $font-size-md: 11px;
+  $font-size-sm: 9px;
+  $height-md: 16px;
+  $height-sm: 14px;
+  $padding-md: 2px 8px;
+  $padding-sm: 0px 4px;
+
+  align-items: center;
+  border-radius: $border-radius-md;
+  color: var(--ngx-t3-tag-color);
+  display: flex;
+  font-family: var(--ngx-t3-tag-font-family) !important;
+  font-size: $font-size-md;
+  min-height: $height-md;
+  padding: $padding-md;
+  box-sizing: border-box;
+
+  &.ellipsed {
+    display: block;
+  }
+
+  &:not(.chip) {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &.chip {
+    border-radius: 20px;
+  }
+
+  &.sm {
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    min-height: $height-sm;
+    padding: $padding-sm;
+  }
+
+}

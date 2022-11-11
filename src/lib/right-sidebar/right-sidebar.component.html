@@ -1,0 +1,12 @@
+<div class="scroll">
+  <ng-content></ng-content>
+</div>
+
+<div
+  *ngIf="showHandle"
+  class="handle"
+  (click)="openChange.emit(this.open = !this.open)">
+  <mat-icon class="opal-s-5">
+    {{ open ? 'chevron_right' : 'chevron_left' }}
+  </mat-icon>
+</div>

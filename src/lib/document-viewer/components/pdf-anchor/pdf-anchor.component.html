@@ -1,0 +1,58 @@
+<ng-container *ngIf="anchor">
+  <div [class.phantom]="!clickable">
+    <div
+      class="pdf-anchor"
+      [class.phantom]="!clickable"
+      [style.top.px]="pages[pageIndex]?.top"
+      [style.left.px]="pages[pageIndex]?.left"
+      [style.width.px]="pages[pageIndex]?.width"
+      [style.height.px]="pages[pageIndex]?.height">
+
+      <div
+        *ngIf="anchor.type === 'point'"
+        class="pdf-point-anchor"
+        [class.phantom]="!clickable"
+        [style.left.%]="100 * pointerX"
+        [style.top.%]="100 * pointerY">
+        <ng-content></ng-content>
+      </div>
+
+      <div
+        *ngIf="anchor.type === 'acrofield'"
+        class="pdf-acrofield-anchor"
+        [style.left.%]="100 * pointerX"
+        [style.top.%]="100 * pointerY"
+        [style.height.%]="100 * anchor.height"
+        [style.width.%]="100 * anchor.width">
+        <ng-content></ng-content>
+      </div>
+    </div>
+
+    <ng-container *ngIf="anchor.type === 'text-selection'">
+      <ng-container *ngFor="let range of anchor.ranges">
+        <div
+          *ngFor="let block of range.blocks; first as firstBlock; last as lastBlock"
+          class="opal-pos-abs phantom"
+          [style.top.px]="pages[block.pageNumber - 1]?.top"
+          [style.left.px]="pages[block.pageNumber - 1]?.left"
+          [style.width.px]="pages[block.pageNumber - 1]?.width"
+          [style.height.px]="pages[block.pageNumber - 1]?.height">
+          <div
+            *ngFor="let line of block.lines; first as firstLine; last as lastLine"
+            class="opal-pos-abs phantom"
+            [style.top.%]="100 * line.top"
+            [style.left.%]="100 * line.left"
+            [style.width.%]="100 * line.width"
+            [style.height.%]="100 * line.height">
+            <div
+              class="highlight opal-pointer opal-pos-abs opal-border-t-2 opal-border-b-2 opal-bg-accent-500 opal-bg-opacity-25 opal-border-accent phantom opal-inset-0"
+              [class.opal-border-r-2]="lastLine"
+              [class.opal-border-l-2]="firstLine"
+              [style.left.%]="100 * (firstBlock && firstLine ? range.start.x : 0)"
+              [style.right.%]="100 * (lastBlock && lastLine ? 1 - range.end.x : 0)"></div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-container>

@@ -1,0 +1,10 @@
+<button
+  mat-button
+  [class.secondary]="menu.secondary"
+  [class.active]="active"
+  [disableRipple]="true"
+  (click)="click()">
+  <ng-content></ng-content>
+</button>
+
+<ng-content select="app-menu"></ng-content>

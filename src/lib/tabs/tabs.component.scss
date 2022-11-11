@@ -1,0 +1,37 @@
+:host {
+  --ngx-t3-tabs-color: var(--opal-grey-400);
+  --ngx-t3-tabs-active-color: var(--opal-accent-600);
+  --ngx-t3-tabs-active-bg-color: var(--opal-accent-100);
+  --ngx-t3-tabs-hover-bg-color: var(--opal-grey-200);
+  --ngx-t3-tabs-disabled-color: var(--opal-grey-200);
+
+  display: flex;
+
+  &.start {
+    justify-content: start;
+  }
+  &.end {
+    justify-content: end;
+  }
+  &.center {
+    justify-content: center;
+  }
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.space-around {
+    justify-content: space-around;
+  }
+  &.space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &::ng-deep ngx-t3-tab-item {
+    &:not(:first-child) {
+      margin-left: 2px;
+    }
+    &:not(:last-child) {
+      margin-right: 2px;
+    }
+  }
+}

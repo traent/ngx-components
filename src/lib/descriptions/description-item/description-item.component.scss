@@ -1,0 +1,13 @@
+:host {
+  min-height: 40px;
+  .label span {
+    background-color: var(--description-label-background-color, inherit);
+    padding-block: var(--description-label-padding-y, 0);
+    padding-inline: var(--description-label-padding-x, 0);
+    border-radius: var(--description-label-radius, 0);
+  }
+
+  &.multiline > .description {
+    word-break: break-word;
+  }
+}

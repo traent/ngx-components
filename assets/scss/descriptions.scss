@@ -1,0 +1,44 @@
+ngx-t3-descriptions {
+  --ngx-t3-label-width: 92px;
+  --ngx-t3-descriptions-min-height: 40px;
+
+  &.has-dividers > ngx-t3-description-item.has-divider {
+    border-bottom: 1px solid theme("colors.neutral.200");
+  }
+
+  ngx-t3-description-item {
+    display: flex;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    &:not(.multiline) {
+      align-items: center;
+      min-height: var(--ngx-t3-descriptions-min-height);
+    }
+
+    &.multiline {
+      align-items: flex-start;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      .label {
+        margin-top: 5px;
+      }
+    }
+
+    [end] {
+      display: block;
+      margin-left: auto;
+      padding-left: 4px;
+    }
+
+    .label {
+      flex: 0 0 var(--ngx-t3-label-width);
+    }
+
+    .description {
+      flex: 1;
+      display: contents;
+    }
+
+  }
+}

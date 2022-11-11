@@ -1,0 +1,20 @@
+<div
+  class="opal-text-break-spaces opal-text-break-word message-content-container"
+  [class.reduced]="mode === 'reduced'">
+  <ng-container *ngFor="let fragment of fragments">
+    <div
+      *ngIf="fragment.kind === MessageFragmentType.Simple"
+      class="opal-d-inline"
+      [ngxT3DrawRichText]="fragment.text">
+    </div>
+    <span
+      *ngIf="fragment.kind === MessageFragmentType.Rich"
+      class="message-content-tag opal-pointer"
+      [matTooltip]="(fragment.label | async) || ''"
+      [ngClass]="fragment.class"
+      (click)="fragmentSelect.emit(fragment)">
+      <ngx-t3-icon [icon]="fragment.icon"></ngx-t3-icon>
+      <span class="opal-ellipsed">{{ fragment.label | async }}</span>
+    </span>
+  </ng-container>
+</div>

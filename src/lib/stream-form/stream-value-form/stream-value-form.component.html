@@ -1,0 +1,187 @@
+<ng-container *ngIf="{
+  form: form$ | async,
+  type: type$ | async,
+  configuration: configuration$ | async
+} as resolved">
+
+  <div class="opal-w-full opal-d-block">
+    <div
+      *ngIf="resolved.form && resolved.type"
+      [formGroup]="resolved.form">
+
+      <ng-container *ngIf="!isReadonly else readonlyRenderer">
+        <!-- Custom template -->
+        <ng-container
+          *ngIf="customTemplate else defaultTemplate"
+          [ngTemplateOutlet]="customTemplate"
+          [ngTemplateOutletContext]="{ $implicit: resolved.form }"></ng-container>
+
+        <ng-template #defaultTemplate>
+          <ng-container [ngSwitch]="resolved.type">
+            <!-- Text stream -->
+            <ng-container *ngSwitchCase="StreamEntryType.Text">
+              <div class="opal-fx-row opal-fx-align-center">
+                <mat-form-field
+                  class="opal-fx-g-1 opal-mt-2"
+                  appearance="outline">
+                  <textarea
+                    cdkTextareaAutosize
+                    matInput
+                    formControlName="value"
+                    [placeholder]="translations.placeholders.text | translate"
+                    [cdkAutosizeMaxRows]="5">
+                  </textarea>
+                </mat-form-field>
+              </div>
+            </ng-container>
+
+            <!-- Date stream -->
+            <ng-container *ngSwitchCase="StreamEntryType.Date">
+              <mat-form-field
+                class="opal-w-full mat-form-field-date opal-h-9"
+                appearance="outline">
+                <input
+                  matInput
+                  readonly
+                  formControlName="value"
+                  [placeholder]="translations.placeholders.date | translate"
+                  [matDatepicker]="picker"
+                  (click)="picker.open()">
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </ng-container>
+
+            <!-- Number stream -->
+            <!-- Currency stream -->
+            <ng-container
+              *ngSwitchCase="StreamEntryType.Number"
+              [ngTemplateOutlet]="defaultNumberTemplate"></ng-container>
+            <ng-container
+              *ngSwitchCase="StreamEntryType.Currency"
+              [ngTemplateOutlet]="defaultNumberTemplate"></ng-container>
+            <ng-template #defaultNumberTemplate>
+              <div class="opal-fx-row opal-fx-align-center">
+                <mat-form-field
+                  class="opal-fx-g-1 opal-mt-2"
+                  appearance="outline">
+                  <input
+                    matInput
+                    type="number"
+                    formControlName="value"
+                    [placeholder]="(resolved.type === StreamEntryType.Number ? translations.placeholders.num : translations.placeholders.currency) | translate">
+                </mat-form-field>
+              </div>
+            </ng-template>
+
+            <!-- URI stream -->
+            <ng-container *ngSwitchCase="StreamEntryType.Uri">
+              <mat-form-field
+                class="opal-w-full"
+                appearance="outline">
+                <input
+                  matInput
+                  formControlName="value"
+                  [placeholder]="translations.placeholders.uri | translate">
+                <mat-error class="opal-mt-n-1">
+                  {{ 'i18n.StreamFormDialog.urlError' | translate }}
+                </mat-error>
+              </mat-form-field>
+            </ng-container>
+
+            <!-- Boolean stream -->
+            <ng-container *ngSwitchCase="StreamEntryType.Boolean">
+              <mat-checkbox
+                class="opal-d-block opal-w-fit opal-p-3"
+                formControlName="value"
+                color="primary">
+              <span class="opal-text-capitalize">
+                {{ (resolved.form.controls.value.value ? translations.checkedValueLabel : translations.uncheckedValueLabel) | translate }}
+              </span>
+              </mat-checkbox>
+            </ng-container>
+
+            <!-- Dropdown stream -->
+            <ng-container *ngSwitchCase="StreamEntryType.Dropdown">
+              <mat-radio-group
+                class="opal-fx-col"
+                formControlName="value">
+                <mat-radio-button
+                  *ngFor="let item of selectOptionsControl.controls"
+                  class="opal-h-8 opal-my-1 opal-mx-3"
+                  [value]="item.value">
+                  {{ item.value }}
+                </mat-radio-button>
+                <mat-radio-button
+                  *ngIf="resolved.configuration?.allowCustomOptions"
+                  class="opal-h-8 opal-mt-1 opal-mb-2 opal-mx-3"
+                  [value]="resolved.form.value.otherValue"
+                  [disabled]="resolved.form.value.otherValue === ''">
+                  <mat-form-field
+                    class="opal-w-full opal-h-8"
+                    floatLabel="never">
+                    <input
+                      matInput
+                      formControlName="otherValue"
+                      placeholder="Other...">
+                  </mat-form-field>
+                </mat-radio-button>
+              </mat-radio-group>
+            </ng-container>
+
+            <!-- MultiSelect stream -->
+            <ng-container *ngSwitchCase="StreamEntryType.MultiSelect">
+              <ngx-t3-stream-multi-select-control
+                formControlName="value"
+                class="opal-ml-3 opal-d-block"
+                [options]="selectOptionsControl.value"></ngx-t3-stream-multi-select-control>
+            </ng-container>
+
+            <div *ngSwitchDefault>{{ translations.notSupportedType | translate }}</div>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+
+      <ng-template #readonlyRenderer>
+        <div class="opal-ml-3">
+          <ngx-t3-stream-value-renderer
+            [value]="readonlyValue$ | async"
+            [type]="resolved.type"
+            [configuration]="resolved.configuration"
+            [rendererType]="resolved.type === 'dropdown' ? 'radio' : 'default'"></ngx-t3-stream-value-renderer>
+        </div>
+      </ng-template>
+
+      <div class="opal-fx-row opal-fx-align-center">
+        <div
+          *ngIf="resolved.form.dirty && !resolved.form.valid"
+          class="opal-mt-2 opal-fx-row opal-fx-align-center opal-text-warn-500">
+          <ng-container
+            *ngIf="resolved.configuration?.validator?.customErrorMessage as customMsg; else genericMsgs"
+            [ngTemplateOutlet]="errorTemplate"
+            [ngTemplateOutletContext]="{ $implicit: customMsg }">
+          </ng-container>
+          <ng-template #genericMsgs>
+            <ng-template
+              *ngFor="let error of formErrors"
+              [ngTemplateOutlet]="errorTemplate"
+              [ngTemplateOutletContext]="{ $implicit: error }">
+            </ng-template>
+          </ng-template>
+
+          <ng-template
+            #errorTemplate
+            let-value>
+            <mat-icon class="opal-mr-2 opal-s-6">info_outline</mat-icon>
+            <div>{{ value }}</div>
+          </ng-template>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</ng-container>

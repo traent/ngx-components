@@ -1,0 +1,15 @@
+<div class="opal-sidebar-container opal-fx-row opal-s-full opal-overflow-hidden">
+  <aside
+    class="sidebar opal-fx-s-0 opal-overflow-y-auto opal-overflow-x-hidden"
+    [ngClass]="{ 'opal-border-r-1 opal-border-grey-200': showBorder }">
+    <ng-content select="[sidebar]"></ng-content>
+  </aside>
+
+  <main
+    class="content opal-fx-col opal-fx-g-1 opal-overflow-x-auto opal-overflow-y-auto"
+    (scroll)="scrollTop = $any($event.target)?.scrollTop || 0">
+    <ng-content></ng-content>
+  </main>
+
+  <ng-content select="[rightbar]"></ng-content>
+</div>

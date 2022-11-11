@@ -1,0 +1,79 @@
+<ng-container
+  *ngIf="value | exported; else redactedField"
+  [ngSwitch]="type">
+  <input
+    *ngSwitchCase="AcrofieldType.Checkbox"
+    type="checkbox"
+    [class.opal-pointer]="editable"
+    [disabled]="!editable"
+    [checked]="value === true"
+    (change)="_innerValue$.next($any($event.target).checked)">
+
+  <input
+    *ngSwitchCase="AcrofieldType.Radio"
+    type="radio"
+    [disabled]="!editable"
+    [checked]="value === true"
+    (change)="_innerValue$.next($any($event.target).checked)">
+
+  <select
+    *ngSwitchCase="AcrofieldType.Select"
+    [style.fontSize.px]="11 * zoom"
+    [disabled]="!editable"
+    [ngModel]="value"
+    (change)="_innerValue$.next($any($event.target).value)">
+    <option
+      *ngFor="let option of allowedValues"
+      [value]="option"
+      [selected]="value === option">
+      {{ option }}
+    </option>
+  </select>
+
+  <select
+    *ngSwitchCase="AcrofieldType.List"
+    multiple
+    [style.fontSize.px]="11 * zoom"
+    [disabled]="!editable"
+    [ngModel]="value"
+    (ngModelChange)="_innerValue$.next($event)">
+    <option
+      *ngFor="let option of allowedValues"
+      [value]="option">
+      {{ option }}
+    </option>
+  </select>
+
+  <input
+    *ngSwitchCase="AcrofieldType.Date"
+    type="date"
+    [style.fontSize.px]="11 * zoom"
+    [disabled]="!editable"
+    [ngModel]="value | date : 'yyyy-MM-dd'"
+    (input)="_innerValue$.next($any($event.target).value)">
+
+  <input
+    *ngSwitchCase="AcrofieldType.TextInput"
+    [style.fontSize.px]="11 * zoom"
+    [disabled]="!editable"
+    [ngModel]="value"
+    (input)="_innerValue$.next($any($event.target).value)">
+
+  <textarea
+    *ngSwitchCase="AcrofieldType.TextArea"
+    [style.fontSize.px]="11 * zoom"
+    [disabled]="!editable"
+    [ngModel]="value"
+    (input)="_innerValue$.next($any($event.target).value)">
+  </textarea>
+</ng-container>
+
+<ng-template #redactedField>
+  <div class="opal-h-full opal-fx-row opal-fx-align-center">
+    <div
+      class="opal-ellipsed opal-text-style-italic"
+      [style.fontSize.px]="11 * zoom">
+      {{ redactedValue }}
+    </div>
+  </div>
+</ng-template>

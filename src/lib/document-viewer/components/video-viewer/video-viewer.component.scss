@@ -1,0 +1,99 @@
+.video-container {
+  position: relative;
+
+  .overlay {
+    z-index: 1;
+
+    .play {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 200px;
+      box-shadow: 0 -1px 2em #000a;
+      border-top: 1px solid #fff4;
+    }
+
+    .controls {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+    }
+
+    .seeking {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-progress {
+    width: 100%;
+  }
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: black;
+
+  .overlay {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 1s;
+  animation-fill-mode: forwards;
+}
+
+.fade-in {
+  animation: fadeIn ease 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.pointer-out {
+  cursor: none;
+}
+
+.pointer-in {
+  cursor: default;
+}

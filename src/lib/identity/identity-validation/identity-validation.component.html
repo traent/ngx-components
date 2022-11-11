@@ -1,0 +1,29 @@
+<mat-icon
+  *ngIf="userValidation"
+  [matTooltip]="userValidation.message"
+  [svgIcon]="userValidation.state | apply : getValidationIcon"
+  [ngClass]="{
+    'opal-text-grey-200': userValidation.state === IdentityValidationState.None,
+    'opal-text-accent': userValidation.state === IdentityValidationState.Valid,
+    'opal-text-red': userValidation.state === IdentityValidationState.Invalid
+  }"></mat-icon>
+
+<mat-icon
+  *ngIf="memberValidation"
+  [matTooltip]="memberValidation.message"
+  [svgIcon]="memberValidation.state | apply : getValidationIcon"
+  [ngClass]="{
+    'opal-text-grey-200': memberValidation.state === IdentityValidationState.None,
+    'opal-text-green': memberValidation.state === IdentityValidationState.Valid,
+    'opal-text-red': memberValidation.state === IdentityValidationState.Invalid
+  }"></mat-icon>
+
+<mat-icon
+  *ngIf="orgValidation"
+  [matTooltip]="orgValidation.message"
+  [svgIcon]="orgValidation.state | apply : getValidationIcon"
+  [ngClass]="{
+    'opal-text-grey-200': orgValidation.state === IdentityValidationState.None,
+    'opal-text-accent': orgValidation.state === IdentityValidationState.Valid,
+    'opal-text-red': orgValidation.state === IdentityValidationState.Invalid
+  }"></mat-icon>

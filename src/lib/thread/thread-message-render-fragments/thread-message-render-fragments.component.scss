@@ -1,0 +1,37 @@
+:root {
+  --ngx-t3-thread-message-render-tag-bg-color: grey;
+}
+
+.message-content-tag {
+  align-items: center;
+  background-color: var(--ngx-t3-thread-message-render-tag-bg-color);
+  border-radius: 4px;
+  display: inline-flex;
+  height: 19px;
+  line-height: 19px;
+  max-width: 100%;
+  padding: 0px 4px;
+  width: fit-content;
+  transform: translateY(2px);
+
+  > ngx-t3-icon ::ng-deep > mat-icon {
+    flex-shrink: 0;
+    font-size: 13px;
+    height: 12px;
+    width: 12px;
+    &:first-of-type {
+      margin-right: 4px;
+    }
+  }
+}
+
+.reduced {
+  display: block;
+  white-space: nowrap!important;
+  overflow: hidden;
+  word-break: break-word !important;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  max-height: 32px;
+  line-height: 32px;
+}

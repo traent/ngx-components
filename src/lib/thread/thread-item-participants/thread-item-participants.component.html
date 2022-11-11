@@ -1,0 +1,27 @@
+<ng-container *ngIf="isDataReady; else skeletonTemplate">
+  <ngx-t3-avatar
+    *ngIf="countDefined === 1 && creatorAvatar"
+    size="sm"
+    [src]="creatorAvatar">
+  </ngx-t3-avatar>
+
+  <div
+    *ngIf="countDefined > 1"
+    class="opal-s-8 opal-rounded opal-bg-grey-200 opal-fx-col opal-fx-center opal-body-3 opal-text-grey-400">
+    <mat-icon class="opal-mb-n-1 opal-s-4">people</mat-icon>
+    {{ count }}
+  </div>
+
+  <div
+    *ngIf="count === undefined || (countDefined <= 1 && creatorAvatar === undefined)"
+    class="opal-s-8 opal-rounded opal-bg-grey-200 opal-fx-col opal-fx-center opal-body-3 opal-text-grey-400">
+    <mat-icon
+      class="opal-mb-n-1 opal-s-6"
+      svgIcon="thread-reference">
+    </mat-icon>
+  </div>
+</ng-container>
+
+<ng-template #skeletonTemplate>
+  <ngx-t3-avatar size="sm"></ngx-t3-avatar>
+</ng-template>

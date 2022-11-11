@@ -1,0 +1,38 @@
+:host {
+  --ngx-t3-table-container-box-shadow: none;
+
+  display: block;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--opal-grey-200);
+  border-radius: 8px;
+  box-shadow: var(--ngx-t3-table-container-box-shadow);
+}
+
+mat-progress-bar {
+  position: absolute;
+  top: 43px;
+  z-index: 1;
+}
+
+::ng-deep [ngx-t3-table-empty] {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+
+::ng-deep mat-table {
+  flex: 1;
+  overflow-y: auto;
+  border: none !important;
+}
+
+hr {
+  top: -1px;
+  margin: 0;
+  width: 100%;
+}

@@ -1,0 +1,38 @@
+.step-container {
+  $foreground-next-color: var(--foreground-next-color, var(--opal-black));
+  $background-next-color: var(--opal-background-next-color, transparent);
+  $foreground-past-color: var(--foreground-past-color, var(--opal-black));
+  $background-past-color: var(--opal-background-past-color, transparent);
+  $foreground-current-color: var(--foreground-current-color, var(--opal-accent));
+  $background-current-color: var(--opal-background-current-color, var(--opal-grey-100));
+  $circle-foreground-color: var(--circle-foreground-color, var(--opal-white));
+
+  color: $foreground-next-color;
+  background-color: $background-next-color;
+  pointer-events: none;
+
+  .round-button {
+    color: $circle-foreground-color !important;
+    background-color: $foreground-next-color;
+    border-radius: 100%;
+    line-height: 15px;
+  }
+
+  &.past {
+    color: $foreground-past-color !important;
+    background-color: $background-past-color;
+    .round-button {
+      color: $circle-foreground-color !important;
+      background-color: $foreground-past-color;
+    }
+  }
+
+  &.current {
+    color: $foreground-current-color !important;
+    background-color: $background-current-color;
+    .round-button {
+      color: $circle-foreground-color !important;
+      background-color: $foreground-current-color;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.image-viewer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-viewer-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.toolbar-container {
+  position: absolute;
+  bottom: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}

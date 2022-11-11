@@ -1,0 +1,48 @@
+:host {
+
+  h1, h2, h3, h4, h5, h6, h7 {
+    margin: 0px;
+  }
+
+  .back-to {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    &:before {
+      font-size: 16px;
+      content: "arrow_back";
+      font-family: "Material Icons";
+      line-height: 16px;
+      width: 16px;
+      min-width: 16px;
+      display: block;
+      text-align: center;
+      color: var(--opal-grey-400);
+      border-radius: 16px;
+      margin-right: 8px;
+    }
+  }
+
+  .label-container {
+    display: flex;
+    justify-content: space-between;
+    .context-menu {
+      margin-right: -8px;
+    }
+
+    &.label-ellipsed {
+      align-items: center;
+      &.h4 {
+        height: 20px;
+      }
+    }
+
+    &:not(.label-ellipsed) {
+      .context-menu {
+        margin-top: -8px;
+      }
+    }
+  }
+
+}

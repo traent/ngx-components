@@ -1,0 +1,27 @@
+<ngx-t3-avatar
+  [src]="src"
+  [square]="squared"
+  [size]="size"
+  [placeholder]="AvatarPlaceholder.Organization">
+</ngx-t3-avatar>
+
+<div class="right-content">
+  <ng-container *ngIf="isDataReady; else skeletonTemplate">
+    <ng-container *ngIf="!isRedacted; else redactedTemplate">
+      <div class="first-line">
+        <div class="opal-ellipsed">{{ firstLine }}</div>
+        <div class="validation">
+          <ng-content select="ngx-t3-identity-validation"></ng-content>
+        </div>
+      </div>
+      <div class="second-line">{{ secondLine }}</div>
+    </ng-container>
+    <ng-template #redactedTemplate>
+      <div class="first-line">{{ anonymousLabel }}</div>
+    </ng-template>
+  </ng-container>
+  <ng-template #skeletonTemplate>
+    <ngx-t3-skeleton class="opal-h-3 opal-w-50"></ngx-t3-skeleton>
+    <ngx-t3-skeleton class="opal-h-3 opal-w-50"></ngx-t3-skeleton>
+  </ng-template>
+</div>

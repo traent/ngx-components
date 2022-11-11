@@ -1,0 +1,176 @@
+aside {
+  $with-sidebar-bg-color: white;
+  $with-sidebar-fg-color: black;
+  $with-sidebar-width: 256px;
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  background-color: var(--with-sidebar-bg-color, $with-sidebar-bg-color);
+  color: var(--with-sidebar-fg-color, $with-sidebar-fg-color);
+  box-shadow: 0px 0px 4px 1px rgba(136, 152, 167, 0.2);
+  width: var(--with-sidebar-width, $with-sidebar-width);
+  z-index: 1;
+
+  > * {
+    margin: 0 16px !important;
+    + * {
+      margin-top: 12px !important;
+    }
+  }
+
+  > h1 {
+    $lines: 4;
+    $lineHeight: 27px;
+    flex-shrink: 0;
+    font-size: 24px !important;
+    word-break: break-word;
+    line-height: $lineHeight;
+    overflow: hidden;
+    max-height: $lineHeight * $lines;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+
+  > .back-to {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    &:before {
+      font-size: 24px;
+      content: "arrow_back";
+      font-family: "Material Icons";
+      line-height: 32px;
+      width: 32px;
+      min-width: 32px;
+      display: block;
+      text-align: center;
+      color: var(--opal-grey-400);
+      border-radius: 32px;
+      margin-right: 8px;
+    }
+  }
+
+  .sidebar-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    text-align: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: calc(100% - 16px);
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: initial;
+    .mat-button-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+    mat-icon {
+      margin-right: 12px !important;
+    }
+  }
+
+  // FIXME: remove `app-...` components when org-app is ready to use ngx-t3 components
+  .menu:not(.menu .menu),
+  app-menu:not(app-menu app-menu){
+    display: block;
+    button.mat-flat-button.mat-accent {
+      letter-spacing: 1.25px;
+    }
+    .menu-item,
+    app-menu-item {
+      line-height: 36px;
+      button {
+        padding: 0 8px !important;
+      }
+    }
+    .menu-item,
+    .menu-router-item,
+    app-menu-item,
+    app-menu-router-item {
+      display: block;
+    }
+    // Menu header
+    strong {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
+  }
+}
+
+.right-bar {
+  width: 360px;
+  position: relative;
+  background: white;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.375s;
+
+  &:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-shadow: 0px 0px 4px 1px rgba(136, 152, 167, 0.2);
+    clip-path: inset(0 0 0 -6px);
+  }
+  &.closed {
+    width: 20px;
+    > .right-bar-scroll {
+      display: none;
+    }
+    > .right-bar-handle {
+      background: var(--opal-accent);
+      color: white;
+    }
+  }
+  > .right-bar-scroll {
+    overflow-y: scroll;
+    padding: 0 16px 0;
+    width: 360px;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
+  }
+  > .right-bar-handle {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 32px;
+    left: -28px;
+    top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--opal-grey-300);
+    background: white;
+    border-radius: 18px 0px 0px 18px;
+    box-shadow: 0px 0px 4px 1px rgba(136, 152, 167, 0.2);
+    clip-path: inset(-6px 0 -6px -6px);
+  }
+  router-outlet {
+    display: none;
+  }
+}
+
+main {
+  background-color: var(--opal-coolgrey-100);
+
+  padding-top: var(--with-sidebar-content-padding-top, 0);
+  padding-bottom: var(--with-sidebar-content-padding-bottom, 48px);
+  padding-right: var(--with-sidebar-content-padding-right, 48px);
+  padding-left: var(--with-sidebar-content-padding-left, 48px);
+}

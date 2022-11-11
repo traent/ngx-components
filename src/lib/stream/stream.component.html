@@ -1,0 +1,34 @@
+<div
+  *ngIf="isDataReady"
+  class="opal-p-2 opal-fx-row opal-fx-align-center opal-s-full opal-border-1 opal-radius-8 opal-border-box"
+  [ngClass]="{
+    'opal-bg-blue-100 opal-border-blue-200': !isRedacted,
+    'opal-bg-grey-100 opal-border-grey-200': isRedacted
+  }">
+  <ng-container *ngIf="!isRedacted">
+    <div class="icon-wrapper opal-p-2 opal-bg-blue-200 opal-radius-4 opal-border-box">
+      <ng-content select="[streamIcon]"></ng-content>
+    </div>
+
+    <div class="opal-ml-2 opal-fx-g-1 opal-ellipsed">
+      <div class="opal-h6 opal-ellipsed">{{ name }}</div>
+      <ng-content select="[streamValue]"></ng-content>
+    </div>
+
+    <ng-content select="[streamMenu]"></ng-content>
+  </ng-container>
+  <ng-container *ngIf="isRedacted">
+    <div class="icon-wrapper opal-p-2 opal-bg-grey-200 opal-radius-4 opal-border-box">
+      <mat-icon
+        class="opal-s-4 opal-text-grey-400"
+        svgIcon="stream-overview"></mat-icon>
+    </div>
+    <div class="opal-ml-2 opal-fx-g-1 opal-ellipsed">
+      <div class="opal-h6 opal-ellipsed opal-text-grey-400">{{ redactedLabel }}</div>
+    </div>
+  </ng-container>
+</div>
+
+<ngx-t3-skeleton
+  *ngIf="!isDataReady"
+  class="opal-s-full opal-radius-8"></ngx-t3-skeleton>

@@ -1,0 +1,12 @@
+:host {
+  --item-width: 100%;
+  height: 48px;
+  width: var(--item-width);
+  display: block;
+}
+
+mat-icon[svgIcon="thread-solved"] {
+  font-size: 14px;
+  height: 14px;
+  width: 14px;
+}

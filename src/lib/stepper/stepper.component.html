@@ -1,0 +1,10 @@
+<div class="opal-fx-col">
+  <div
+    *ngFor="let step of labels; let index = index"
+    class="opal-fx-row opal-fx-align-center step-container opal-p-2 opal-radius-4"
+    [class.past]="current > index"
+    [class.current]="current === index">
+    <div class="round-button opal-mr-2 opal-s-5 opal-text-center opal-fx-row opal-fx-justify-center opal-fx-align-center">{{ index }}</div>
+    <span class="opal-h5 opal-text-capitalize">{{ step }}</span>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+:root {
+  --ngx-t3-thread-message-skeleton-bg-color: var(--opal-grey-100, white);
+  --ngx-t3-thread-message-bg-color: var(--opal-grey-100, white);
+  --ngx-t3-thread-message-max-width: 450px;
+  --ngx-t3-thread-message-min-height: 86px;
+  --ngx-t3-thread-message-code-block-bg-color: rgba(var(--opal-black-500-rgb), 0.1) !important;
+}
+
+:host {
+  background-color: var(--ngx-t3-thread-message-bg-color);
+  border-radius: 16px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: block;
+  max-width: var(--ngx-t3-thread-message-max-width);
+  min-height: var(--ngx-t3-thread-message-min-height);
+  min-width: 250px;
+  padding: 12px;
+
+  .message-content-container {
+    line-height: 20px;
+  }
+}
+
+ngx-t3-skeleton {
+  background-color: var(--ngx-t3-thread-message-skeleton-bg-color) !important;
+}
+
+.code-block {
+  background: var(--ngx-t3-thread-message-code-block-bg-color);
+}

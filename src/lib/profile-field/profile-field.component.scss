@@ -1,0 +1,12 @@
+.no-line {
+  border-bottom: 0px !important;
+}
+
+.label {
+  max-width: 280px;
+  min-width: 140px;
+}
+
+.label, .value {
+  flex: 1;
+}

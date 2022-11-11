@@ -1,0 +1,6 @@
+<ng-content></ng-content>
+<div
+  *ngIf="limit !== undefined && count - limit > 0"
+  class="group-more">
+  + <span>{{ count - limit }}</span>
+</div>

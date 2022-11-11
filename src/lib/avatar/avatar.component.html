@@ -1,0 +1,57 @@
+<ng-container *ngIf="isDataReady; else skeletonTemplate">
+  <img
+    class="opal-s-full"
+    [src]="!isAvailable ? placeholder : src">
+  <div
+    *ngIf="editable"
+    class="badge">
+    <button
+      *ngIf="!isAvailable"
+      mat-icon-button
+      class="small center-icon opal-text-grey-400 opal-bg-white opal-border-1 opal-border-grey-200"
+      type="button"
+      [matTooltip]="editButtonTooltip"
+      (click)="avatarInput.click()">
+      <mat-icon class="opal-s-4">cloud_upload</mat-icon>
+    </button>
+    <button
+      *ngIf="isAvailable"
+      mat-icon-button
+      class="small center-icon opal-text-grey-400 opal-bg-white opal-border-1 opal-border-grey-200"
+      type="button"
+      [matTooltip]="editButtonTooltip"
+      [matMenuTriggerFor]="menu">
+      <mat-icon class="opal-s-4">edit</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        (click)="avatarInput.click()">
+        <mat-icon>edit</mat-icon>
+        <span>Change</span>
+      </button>
+      <button
+        mat-menu-item
+        (click)="imageRemove.emit()">
+        <mat-icon>delete</mat-icon>
+        <span>Remove</span>
+      </button>
+    </mat-menu>
+    <input
+      #avatarInput
+      hidden
+      accept="image/png,image/jpeg"
+      type="file"
+      (click)="avatarInput.value = ''"
+      (change)="imageFileChange.emit($event)">
+  </div>
+  <div
+    *ngIf="!editable"
+    class="badge">
+    <ng-content></ng-content>
+  </div>
+</ng-container>
+
+<ng-template #skeletonTemplate>
+  <ngx-t3-skeleton class="opal-s-full"></ngx-t3-skeleton>
+</ng-template>

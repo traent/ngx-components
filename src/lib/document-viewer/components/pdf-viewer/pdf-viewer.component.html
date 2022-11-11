@@ -1,0 +1,64 @@
+<div
+  #viewport
+  class="pdf-viewer-container">
+
+  <div
+    *ngIf="data"
+    class="pdf-viewer-content">
+    <ng-container *ngFor="let page of data | apply : getPages | async; let last = last">
+      <div
+        #pageElement
+        #rectVisible="ngxT3Visible"
+        ngxT3Visible
+        intersectionRootMargin="300% 300%"
+        id="page-{{page.pageNumber}}"
+        class="pdf-viewer-page"
+        [intersectionRoot]="viewport"
+        [attr.data-number]="page.pageNumber"
+        [class.opal-mb-5]="!last"
+        [style.width.px]="page.getViewport({ scale: zoom }).width"
+        [style.height.px]="page.getViewport({ scale: zoom }).height">
+
+        <ng-container *ngIf="rectVisible.visibleChange | async">
+          <ngx-t3-pdf-page-canvas
+            [pdfPageProxy]="page"
+            [zoom]="zoom">
+          </ngx-t3-pdf-page-canvas>
+
+          <ngx-t3-pdf-text-content
+            *ngIf="textRendering"
+            style.transform="scale({{zoom}})"
+            [textContent]="page | apply : getTextContent | async"
+            [pageNumber]="page.pageNumber ">
+          </ngx-t3-pdf-text-content>
+
+          <div
+            *ngIf="annotationsRendering"
+            class="pdf-annotations"
+            style.transform="scale({{zoom}})">
+            <ng-container *ngFor="let annotation of page.getAnnotations() | async; let i = index">
+              <div
+                *ngIf="annotation | apply : isAnnotationSupported"
+                [style.left.px]="annotation.rect[0]"
+                [style.bottom.px]="annotation.rect[1]"
+                [style.height.px]="annotation.rect[3] - annotation.rect[1]"
+                [style.width.px]="annotation.rect[2] - annotation.rect[0]"
+                (click)="acrofieldClick.emit({ mouseEvent: $event, anchor: getAnchorFromAnnotation(annotation, i, page) })"
+                (contextmenu)="acrofieldContextMenuClick.emit({ mouseEvent: $event, anchor: getAnchorFromAnnotation(annotation, i, page) })">
+              </div>
+            </ng-container>
+
+          </div>
+
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <!-- Anchors -->
+    <ng-content></ng-content>
+  </div>
+</div>
+
+<div class="toolbar-container">
+  <ng-content select="[toolbar]"></ng-content>
+</div>

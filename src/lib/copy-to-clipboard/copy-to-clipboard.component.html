@@ -1,0 +1,21 @@
+<span
+  class="opal-fx-row opal-fx-align-center opal-hover-container"
+  [additionalClasses]="additionalClasses"
+  [ngxT3ClickToCopy]="textToCopy"
+  (copied)="copySuccess()"
+  (mouseleave)="copyTooltip.hide()">
+  <ng-content></ng-content>
+  <mat-icon
+    #copyTooltip="matTooltip"
+    class="opal-fx-s-0"
+    matTooltipShowDelay="100"
+    [ngClass]="{
+      'on-hover': hover,
+      'opal-text-green-400': isCopied,
+      'opal-text-grey-400': !isCopied
+    }"
+    [matTooltip]="isCopied ? copiedTooltip: tooltip"
+    [matTooltipPosition]="position">
+    {{ isCopied ? 'done' : 'content_copy' }}
+  </mat-icon>
+</span>

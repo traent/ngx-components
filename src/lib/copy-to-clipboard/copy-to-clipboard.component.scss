@@ -1,0 +1,16 @@
+:host {
+  > span {
+    text-align: center;
+  }
+
+  $sizes: ("xs": 8, "sm": 12, "md": 16, "lg": 20);
+
+  @each $size, $sizePx in $sizes {
+    &.#{$size} mat-icon {
+      font-size: #{$sizePx}px !important;
+      line-height: #{$sizePx}px !important;
+      height: #{$sizePx}px !important;
+      width: #{$sizePx}px !important;
+    }
+  }
+}
