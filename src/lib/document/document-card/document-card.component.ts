@@ -19,7 +19,7 @@ const DEFAULT_TOOLTIP_DETAILS: TooltipDetails = {
 })
 export class DocumentCardComponent {
   @Input() addDocumentLabel = 'Upload document';
-  @Input() contentType?: 'PDF' | 'Image' | 'Generic' | 'Video' | 'FORM' | null;
+  @Input() contentType?: 'PDF' | 'Image' | 'Generic' | 'Video' | 'FORM' | 'View' | null;
   @Input() extension?: string | null;
   @Input() isPlaceholder = false;
   @Input() isSelected = false;

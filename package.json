@@ -1,6 +1,6 @@
 {
   "name": "@traent/ngx-components",
-  "version": "0.0.10",
+  "version": "0.1.4",
   "author": {
     "name": "Traent S.r.l."
   },
@@ -23,5 +23,10 @@
   },
   "dependencies": {
     "tslib": "^2.2.0"
+  },
+  "exports": {
+    "./assets/css/styles.min.css": {
+      "style": "./assets/css/styles.min.css"
+    }
   }
 }

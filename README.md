@@ -8,11 +8,11 @@
 
 <br />
 
-> @traent/ngx-components is an Angular library that exposes both pure UI and domain components, directives and pipes used inside Traent.
+> @traent/ngx-components is an Angular library that exposes both pure UI and domain components, directives and pipes used in Traent project.
 
 In the future this library will integrate also other `@traent/ngx-` libraries.
 
-> Important note: This library is actually under development and could have some further breaking changes.
+> Notice: This library is currently under development and might be subjected to breaking changes.
 
 ## Compatibility with Angular Versions
 
@@ -23,15 +23,15 @@ In the future this library will integrate also other `@traent/ngx-` libraries.
 
 ## Installation
 
-You can install it through **NPM**:
+You can install it via **NPM**:
 
 ```bash
 npm install @traent/ngx-components
 ```
 
-This library offers multiple modules, trying to following the SCAM pattern.
+This library offers multiple modules, following the SCAM pattern.
 
-So you will also need to import the specific module that you need in your `app.module`. For example:
+So you might need to import also the specific modules in your `app.module`. For example:
 
 ```typescript
 import { ClickToCopyModule } from '@traent/ngx-components';
@@ -58,5 +58,4 @@ In the future, we will improve the tooling to allow everyone to build this libra
 
 ## Contributors
 
-At the moment, contributions are not supported through Pull Request.
-However, we truly appreciate any feedback made through the issue system.
+We are open to any contributions and feedbacks.

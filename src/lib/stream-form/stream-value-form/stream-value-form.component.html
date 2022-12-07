@@ -114,20 +114,6 @@
                   [value]="item.value">
                   {{ item.value }}
                 </mat-radio-button>
-                <mat-radio-button
-                  *ngIf="resolved.configuration?.allowCustomOptions"
-                  class="opal-h-8 opal-mt-1 opal-mb-2 opal-mx-3"
-                  [value]="resolved.form.value.otherValue"
-                  [disabled]="resolved.form.value.otherValue === ''">
-                  <mat-form-field
-                    class="opal-w-full opal-h-8"
-                    floatLabel="never">
-                    <input
-                      matInput
-                      formControlName="otherValue"
-                      placeholder="Other...">
-                  </mat-form-field>
-                </mat-radio-button>
               </mat-radio-group>
             </ng-container>
 

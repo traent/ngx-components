@@ -1,15 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 
+const tw_traent = require('../traent-design-system/tailwind/tw-base-theme');
+const tw_plugins = require('../traent-design-system/tailwind/tw-plugins');
+
 module.exports = {
-  presets: [
-    require('../../tailwind.config'),
-  ],
+  prefix: 'tw-',
   content: [
-    "./assets/**/*.{html,ts,scss}",
-    "./src/lib/**/*.{html,ts,scss}",
+    "./projects/ngx-t3-components/**/*.{html,ts,scss}",
   ],
   theme: {
-    extend: {},
+    extend: { ...tw_traent.theme },
   },
-  plugins: [],
+  plugins: [
+    function ({ addBase, theme }) {
+      addBase({ ':root': { ...tw_plugins.extractPalette(theme('colors')) } });
+    },
+  ],
 }

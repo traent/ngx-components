@@ -68,6 +68,7 @@ class LinkComponent {
 @Component({
   template: `
   <span
+    class="tw-whitespace-pre"
     [ngClass]="{
       'opal-text-bold': bold,
       'opal-text-style-italic': italic
