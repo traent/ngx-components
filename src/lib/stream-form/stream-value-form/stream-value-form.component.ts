@@ -2,12 +2,11 @@ import { DatePipe } from '@angular/common';
 import {
   Component,
   Input,
-  OnDestroy,
   TemplateRef,
 } from '@angular/core';
 import { FormGroup, FormArray } from '@angular/forms';
 import { required, isNotNullOrUndefined } from '@traent/ts-utils';
-import { BehaviorSubject, switchMap, Subscription } from 'rxjs';
+import { BehaviorSubject, switchMap } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 import { StreamEntryType, getStreamTypeIcon } from '../../org-types/streams/streams';
@@ -46,18 +45,10 @@ export const defaultStreamValueFormTranslations = {
   styleUrls: ['./stream-value-form.component.scss'],
   providers: [DatePipe],
 })
-export class StreamValueFormComponent implements OnDestroy {
+export class StreamValueFormComponent {
 
   readonly form$ = new BehaviorSubject<FormGroup | null>(null);
   @Input() set form(form: FormGroup | null) {
-    this._formSubscription?.unsubscribe();
-    if (form?.get('otherValue')) {
-      this._formSubscription = form?.get('otherValue')?.valueChanges.subscribe((val) => {
-        if (val === '') {
-          form?.get('value')?.patchValue(undefined);
-        }
-      });
-    }
     this.form$.next(form);
   }
 
@@ -92,8 +83,6 @@ export class StreamValueFormComponent implements OnDestroy {
     switchMap((form) => form.valueChanges.pipe(startWith(form.value))),
     map((formValue) => formValue?.value),
   );
-
-  private _formSubscription?: Subscription;
 
   get selectOptionsControl(): FormArray {
     return (this.form$?.value?.controls.configuration as FormGroup).controls.allowedValues as FormArray;
@@ -146,8 +135,4 @@ export class StreamValueFormComponent implements OnDestroy {
 
 
   constructor(private readonly datePipe: DatePipe) { }
-
-  ngOnDestroy(): void {
-    this._formSubscription?.unsubscribe();
-  }
 }

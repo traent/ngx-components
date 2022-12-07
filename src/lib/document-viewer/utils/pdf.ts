@@ -36,8 +36,11 @@ export const getCurrentPage = (pageElementRefs: QueryList<ElementRef>): Observab
   );
 };
 
-export const scrollToPage = (page: PDFPageProxy): void => {
-  const element = document.getElementById(`page-${page.pageNumber}`);
+export const scrollToPage = (page: PDFPageProxy, selector?: string): void => {
+  const element = selector
+    ? document.getElementById(selector)?.querySelector(`#page-${page.pageNumber}`)
+    : document.getElementById(`page-${page.pageNumber}`);
+
   if (!element) {
     return;
   }
