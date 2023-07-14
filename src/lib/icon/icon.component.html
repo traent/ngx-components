@@ -1,9 +1,8 @@
 <mat-icon
   *ngIf="icon?.material as iconName"
   [class]="iconClass"
-  [style.transform]="icon?.transform || null">
-  {{ iconName }}
-</mat-icon>
+  [fontIcon]="iconName"
+  [style.transform]="icon?.transform || null"></mat-icon>
 
 <mat-icon
   *ngIf="!icon?.material && icon?.custom as iconName"

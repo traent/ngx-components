@@ -1,6 +1,6 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 
-const MARKER_CLASS = 'pointer';
+const MARKER_CLASSES = ['tw-cursor-pointer', 'pointer'];
 
 /**
  * This directive is used to find all the elements having `pointer` class to make it possible to handle click on them.
@@ -10,18 +10,19 @@ const MARKER_CLASS = 'pointer';
   selector: '[ngxT3PointerInnerClick]',
 })
 export class PointerInnerClickDirective {
-
   @Output() readonly innerClick = new EventEmitter<string>();
 
   @HostListener('click', ['$event.target']) click(target: HTMLElement): void {
-    if (target.classList.contains(MARKER_CLASS)) {
-      const eventNames: string[] = [];
-      target.classList.forEach((className) => {
-        if (className !== MARKER_CLASS) {
-          eventNames.push(className);
-        }
-      });
-      this.innerClick.emit(eventNames.join(' '));
-    }
+    MARKER_CLASSES.forEach((marker) => {
+      if (target.classList.contains(marker)) {
+        const eventNames: string[] = [];
+        target.classList.forEach((className) => {
+          if (className !== marker) {
+            eventNames.push(className);
+          }
+        });
+        this.innerClick.emit(eventNames.join(' '));
+      }
+    });
   }
 }

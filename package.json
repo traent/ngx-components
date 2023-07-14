@@ -1,6 +1,6 @@
 {
   "name": "@traent/ngx-components",
-  "version": "0.1.4",
+  "version": "0.1.33",
   "author": {
     "name": "Traent S.r.l."
   },
@@ -11,10 +11,11 @@
     "doc:serve": "npm run doc:lib:common -- --serve"
   },
   "peerDependencies": {
-    "@angular/common": "^14.1.2",
-    "@angular/core": "^14.1.2",
-    "@angular/material": "^14.1.2",
-    "@traent/ts-utils": "^0.0.7",
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/material": "^14.2.0",
+    "@traent/design-system": ">=0.0.6 <=0.0.x",
+    "@traent/ts-utils": ">=0.0.6 <=0.0.x",
     "dompurify": "^2.4.0",
     "fast-deep-equal": "^3.1.3",
     "luxon": "^3.0.0",

@@ -20,8 +20,8 @@ export class AppTermsAndConditionsComponent {
   private _privacyPolicyProps: PrivacyPolicyProps = {
     year: new Date().getFullYear(),
     company: 'Traent',
-    privacyPolicy: 'Privacy Policy',
-    termsAndConditions: 'Terms and Conditions',
+    privacyPolicy: 'Privacy',
+    termsAndConditions: 'Terms',
     termsAndConditionsUrl: '',
     privacyPolicyUrl: '',
   };

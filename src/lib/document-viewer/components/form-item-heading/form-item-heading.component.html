@@ -1,11 +1,11 @@
 <div
-  class="opal-fx-row opal-fx-align-center opal-p-3 opal-border-grey-100"
-  [class.opal-border-b-1]="description">
-  <h4 class="heading opal-m-0 opal-px-2 opal-text-500">{{ name }}</h4>
+  class="tw-flex tw-flex-row tw-items-center tw-p-3 tw-border-neutral-100"
+  [class.tw-border-b]="description">
+  <h4 class="heading tw-m-0 tw-px-2 tw-font-medium tw-break-words tw-break-all">{{ name }}</h4>
 </div>
 
 <div
   *ngIf="description"
-  class="opal-fx-row opal-fx-align-center opal-p-3">
-  <span class="description">{{ description }}</span>
+  class="tw-flex tw-flex-row tw-items-center tw-p-3">
+  <span class="tw-py-1.5 tw-px-2 tw-break-words tw-break-all">{{ description }}</span>
 </div>

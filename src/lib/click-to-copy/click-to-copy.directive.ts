@@ -8,7 +8,7 @@ export class ClickToCopyDirective {
 
   @Input() ngxT3ClickToCopy?: string;
   @Output() readonly copied = new EventEmitter();
-  @HostBinding('class') @Input() additionalClasses = 'opal-text-underline opal-pointer';
+  @HostBinding('class') @Input() additionalClasses = 'tw-underline tw-cursor-pointer';
 
   constructor(private readonly clipBoard: Clipboard) { }
 

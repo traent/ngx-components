@@ -1,8 +1,10 @@
 <ng-container *ngIf="data">
   <div
     class="pdf-pages-navigation-popup"
-    [class.opal-d-none]="!navigationPopupVisible"
-    [class.opal-fx-row]="navigationPopupVisible"
+    [ngClass] = "{
+      'tw-hidden': !navigationPopupVisible,
+      'tw-flex tw-flex-row': navigationPopupVisible
+    }"
     (clickOutside)="navigationPopupVisible = false">
     <ng-container *ngFor="let pdfPage of data | apply : getPages | async">
       <div
@@ -28,14 +30,14 @@
       (click)="anchorModeChange.emit('point')">
       <mat-icon
         svgIcon="point-select"
-        class="opal-s-4"></mat-icon>
+        class="tw-w-4 tw-h-4"></mat-icon>
     </button>
     <button
       [class.active]="anchorMode === 'text-selection'"
       (click)="anchorModeChange.emit('text-selection')">
       <mat-icon
         svgIcon="text-select"
-        class="opal-s-4"></mat-icon>
+        class="tw-w-4 tw-h-4"></mat-icon>
     </button>
   </ng-container>
 
@@ -49,7 +51,7 @@
       <div>
         Page {{ page || 1 }}/{{ data?.numPages }}
       </div>
-      <mat-icon class="opal-s-5">
+      <mat-icon class="tw-w-5 tw-h-5">
         {{ navigationPopupVisible ? 'expand_less' : 'expand_more' }}
       </mat-icon>
     </div>

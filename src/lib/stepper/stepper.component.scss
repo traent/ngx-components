@@ -1,11 +1,11 @@
 .step-container {
-  $foreground-next-color: var(--foreground-next-color, var(--opal-black));
-  $background-next-color: var(--opal-background-next-color, transparent);
-  $foreground-past-color: var(--foreground-past-color, var(--opal-black));
-  $background-past-color: var(--opal-background-past-color, transparent);
-  $foreground-current-color: var(--foreground-current-color, var(--opal-accent));
-  $background-current-color: var(--opal-background-current-color, var(--opal-grey-100));
-  $circle-foreground-color: var(--circle-foreground-color, var(--opal-white));
+  $foreground-next-color: var(--foreground-next-color, var(--tw-black));
+  $background-next-color: var(--tw-background-next-color, transparent);
+  $foreground-past-color: var(--foreground-past-color, var(--tw-black));
+  $background-past-color: var(--tw-background-past-color, transparent);
+  $foreground-current-color: var(--foreground-current-color, var(--tw-accent-500));
+  $background-current-color: var(--tw-background-current-color, var(--tw-neutral-100));
+  $circle-foreground-color: var(--circle-foreground-color, var(--tw-white));
 
   color: $foreground-next-color;
   background-color: $background-next-color;

@@ -6,6 +6,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { SafeUrl } from '@angular/platform-browser';
 
 export type AvatarSize = 'xxxs' | 'xxs' | 'xs' | 'sm' | 'lg' | 'md' | 'xl';
 
@@ -30,7 +31,7 @@ export class AvatarComponent {
   @Input() @HostBinding('class.square') square = false;
 
   @Input() placeholder: string = AvatarPlaceholder.Person;
-  @Input() src: string | null | undefined = null;
+  @Input() src: SafeUrl | string | null | undefined = null;
   @Input() editable = false;
   @Input() editButtonTooltip = '';
 

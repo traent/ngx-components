@@ -1,0 +1,24 @@
+<div
+  *ngIf="thingInfo; else loading"
+  class="tw-flex tw-flex-row tw-items-center tw-w-full">
+  <div
+    class="tw-flex tw-flex-row tw-items-center tw-w-full tw-text-base"
+    [ngClass]="size">
+    <mat-icon
+      class="tw-text-gray-600 !tw-w-4 !tw-h-4 !tw-text-base !tw-leading-4"
+      [svgIcon]="thingInfo.svgIcon || ''"
+      [fontIcon]="thingInfo.icon || ''">
+    </mat-icon>
+    <div class="type">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <ngx-t3-skeleton class="tw-flex tw-flex-row tw-items-center tw-w-full">
+    <ngx-t3-avatar [size]="size"></ngx-t3-avatar>
+
+    <ngx-t3-skeleton class="tw-h-8 tw-w-full"></ngx-t3-skeleton>
+  </ngx-t3-skeleton>
+</ng-template>

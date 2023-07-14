@@ -1,5 +1,5 @@
 <span
-  class="opal-fx-row opal-fx-align-center opal-hover-container"
+  class="tw-flex tw-flex-row tw-items-center tw-t3-hover-container"
   [additionalClasses]="additionalClasses"
   [ngxT3ClickToCopy]="textToCopy"
   (copied)="copySuccess()"
@@ -7,12 +7,12 @@
   <ng-content></ng-content>
   <mat-icon
     #copyTooltip="matTooltip"
-    class="opal-fx-s-0"
+    class="tw-shrink-0 fill-0"
     matTooltipShowDelay="100"
     [ngClass]="{
       'on-hover': hover,
-      'opal-text-green-400': isCopied,
-      'opal-text-grey-400': !isCopied
+      'tw-text-green-400': isCopied,
+      'tw-text-neutral-400': !isCopied
     }"
     [matTooltip]="isCopied ? copiedTooltip: tooltip"
     [matTooltipPosition]="position">

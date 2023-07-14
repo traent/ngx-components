@@ -10,6 +10,6 @@ export type TagSize = 'sm' | 'md';
 })
 export class TagComponent {
   @Input() @HostBinding('class') size: TagSize = 'md';
-  @Input() @HostBinding('class.chip') chip = false;
-  @Input() @HostBinding('class.opal-ellipsed') ellipsed = true;
+  @Input() @HostBinding('class.chip') chip = true;
+  @Input() @HostBinding('class.tw-truncate') ellipsed = true;
 }

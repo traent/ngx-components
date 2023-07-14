@@ -1,9 +1,9 @@
 :host {
-  --ngx-t3-tabs-color: var(--opal-grey-400);
-  --ngx-t3-tabs-active-color: var(--opal-accent-600);
-  --ngx-t3-tabs-active-bg-color: var(--opal-accent-100);
-  --ngx-t3-tabs-hover-bg-color: var(--opal-grey-200);
-  --ngx-t3-tabs-disabled-color: var(--opal-grey-200);
+  --ngx-t3-tabs-color: var(--tw-neutral-400);
+  --ngx-t3-tabs-active-color: var(--tw-accent-600);
+  --ngx-t3-tabs-active-bg-color: var(--tw-accent-100);
+  --ngx-t3-tabs-hover-bg-color: var(--tw-neutral-200);
+  --ngx-t3-tabs-disabled-color: var(--tw-neutral-200);
 
   display: flex;
 

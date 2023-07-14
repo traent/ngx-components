@@ -1,15 +1,12 @@
 :host {
-  --growing-search-bar-preview-width: 160px;
-  --growing-search-bar-height: 36px;
-
   display: block;
-  height: var(--growing-search-bar-height);
+  height: var(--growing-search-bar-height, 36px);
 
   .width-transition {
     transition: width .175s ease-in-out;
   }
 
   .preview-search-bar {
-    width: var(--growing-search-bar-preview-width);
+    width: var(--growing-search-bar-preview-width, 160px) !important;
   }
 }

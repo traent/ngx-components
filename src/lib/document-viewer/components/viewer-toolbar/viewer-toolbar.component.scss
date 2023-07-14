@@ -19,7 +19,7 @@
     border: none;
     border-radius: 20px;
     box-shadow: 0px 0px 7px 1px rgba(136, 152, 167, 0.35);
-    font-family: var(--font-family-brand);
+    font-family: theme('fontFamily.brand');
 
 
     &:not(:last-of-type) {
@@ -47,11 +47,10 @@
   height: 249px;
   padding: 12px;
   margin-bottom: 16px;
-  display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
-  background-color: var(--opal-coolgrey-100);
-  border: 1px solid var(--opal-grey-200);
+  background-color: var(--tw-gray-100);
+  border: 1px solid var(--tw-neutral-200);
   border-radius: 8px;
   box-shadow: 0px 0px 7px 1px rgba(136, 152, 167, 0.35);
 

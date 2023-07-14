@@ -46,7 +46,7 @@ export class DrawRichTextDirective implements OnInit {
 }
 
 @Component({
-  template: `<div class="opal-d-block opal-text-code opal-body-2 opal-text-grey-500 opal-p-2 opal-radius-4 code-block">{{ code }}</div>`,
+  template: `<div class="tw-block tw-font-code tw-text-sm tw-text-neutral-500 tw-p-2 !tw-rounded code-block">{{ code }}</div>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class CodeBlockComponent {
@@ -56,7 +56,7 @@ class CodeBlockComponent {
 @Component({
   template: `
     <a
-      class="opal-pointer opal-text-underline opal-text-accent-700"
+      class="tw-cursor-pointer tw-underline tw-text-accent-700"
       target="_blank"
       [href]="link">{{ link }}</a>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -68,10 +68,9 @@ class LinkComponent {
 @Component({
   template: `
   <span
-    class="tw-whitespace-pre"
     [ngClass]="{
-      'opal-text-bold': bold,
-      'opal-text-style-italic': italic
+      'tw-font-bold': bold,
+      'tw-italic': italic
     }">{{ text }}</span>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

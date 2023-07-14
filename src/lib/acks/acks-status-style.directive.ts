@@ -7,13 +7,13 @@ import { Directive, HostBinding, Input } from '@angular/core';
 export class AcksStatusStyleDirective {
   @Input('acksStatusStyle') status?: 'none' | 'pending' | 'complete';
 
-  @HostBinding('class.opal-text-grey-400') get none(): boolean {
+  @HostBinding('class.tw-text-neutral-400') get none(): boolean {
     return this.status === 'none';
   }
-  @HostBinding('class.opal-text-orange') get pending(): boolean {
+  @HostBinding('class.tw-text-orange') get pending(): boolean {
     return this.status === 'pending';
   }
-  @HostBinding('class.opal-text-green') get complete(): boolean {
+  @HostBinding('class.tw-text-green') get complete(): boolean {
     return this.status === 'complete';
   }
 }

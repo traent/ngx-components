@@ -1,6 +1,6 @@
 import { StreamEntryType } from '../../org-types/streams/streams';
 
-export type DocumentFormStreamItemType = Exclude<StreamEntryType, StreamEntryType.Approval>;
+export type DocumentFormStreamItemType = StreamEntryType;
 
 export interface DocumentFormStreamItem {
   id: string;

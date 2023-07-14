@@ -17,21 +17,21 @@
 
     &.disabled {
       cursor: default;
-      color: var(--opal-grey-400);
+      color: var(--tw-neutral-400);
 
       mat-icon {
-        color: var(--opal-grey-400) !important;
+        color: var(--tw-neutral-400) !important;
       }
 
       .text-wrapper {
         p {
-          color: var(--opal-grey-400);
+          color: var(--tw-neutral-400);
         }
       }
     }
 
     &.selected .icon-wrapper {
-      background-color: var(--opal-traentblue-100);
+      background-color: var(--tw-traent-100);
     }
 
     .icon-wrapper {
@@ -41,11 +41,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--opal-grey-200);
+      border: 1px solid var(--tw-neutral-200);
       border-radius: 4px;
 
       mat-icon {
-        color: var(--opal-traentblue-500);
+        color: var(--tw-traent-500);
       }
     }
 
@@ -55,16 +55,16 @@
         margin-top: 4px;
         margin-bottom: 0;
         font-size: 14px;
-        color: var(--opal-grey);
+        color: var(--tw-neutral-600);
       }
     }
 
     &:hover {
-      background-color: var(--opal-coolgrey-100);
+      background-color: var(--tw-gray-100);
     }
 
     &:not(:last-of-type) {
-      border-bottom: 1px solid var(--opal-grey-200);
+      border-bottom: 1px solid var(--tw-neutral-200);
     }
   }
 }

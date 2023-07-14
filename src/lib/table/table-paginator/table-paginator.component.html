@@ -1,9 +1,9 @@
 <div
   *ngIf="pageSizeValues.length > 1"
-  class="opal-fx-row opal-fx-align-center">
-  <span class="opal-mr-2">{{ totalPageLabel }}</span>
+  class="tw-flex tw-flex-row tw-items-center">
+  <span class="tw-mr-2">{{ totalPageLabel }}</span>
   <mat-select
-    class="opal-px-2 opal-py-0 opal-border-grey-200 opal-border-1 opal-radius-4"
+    class="tw-px-2 tw-py-0 tw-border-neutral-200 tw-border !tw-rounded"
     [value]="pageSize"
     (selectionChange)="pageSize = $event.value">
     <mat-option
@@ -14,34 +14,34 @@
   </mat-select>
 </div>
 
-<div class="opal-fx-row opal-fx-align-center">
+<div class="tw-flex tw-flex-row tw-items-center">
   <span
     *ngIf="totalPages"
-    class="opal-mr-3">
+    class="tw-mr-3">
     {{ pageLabel }} {{ pageIndex + 1 }} {{ ofLabel }} {{ totalPages }}
   </span>
   <button
     mat-icon-button
     [disabled]="disablePrev"
     (click)="firstPage()">
-    <mat-icon class="opal-s-4">first_page</mat-icon>
+    <mat-icon class="tw-w-4 tw-h-4">first_page</mat-icon>
   </button>
   <button
     mat-icon-button
     [disabled]="disablePrev"
     (click)="prevPage()">
-    <mat-icon class="opal-s-4">chevron_left</mat-icon>
+    <mat-icon class="tw-w-4 tw-h-4">chevron_left</mat-icon>
   </button>
   <button
     mat-icon-button
     [disabled]="disableNext"
     (click)="nextPage()">
-    <mat-icon class="opal-s-4">chevron_right</mat-icon>
+    <mat-icon class="tw-w-4 tw-h-4">chevron_right</mat-icon>
   </button>
   <button
     mat-icon-button
     [disabled]="disableNext"
     (click)="lastPage()">
-    <mat-icon class="opal-s-4">last_page</mat-icon>
+    <mat-icon class="tw-w-4 tw-h-4">last_page</mat-icon>
   </button>
 </div>

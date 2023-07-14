@@ -3,7 +3,7 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  background: var(--opal-grey-100) no-repeat;
+  background: var(--tw-neutral-100) no-repeat;
 
   &.animated.progress {
     &:after, &:before {

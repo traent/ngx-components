@@ -3,7 +3,7 @@
   [src]="fileTypeIcon">
 <ng-template #noFileTypeIcon>
   <div class="generic-viewer-ext">
-    <span class="opal-h1">
+    <span class="tw-h1">
       <ng-container *ngIf="fileTypeExtension | exportedAndDefined; else noFileTypeExtension">
         .{{ fileTypeExtension }}
       </ng-container>
@@ -17,7 +17,7 @@
 <span
   *ngIf="name | exportedAndDefined"
   class="generic-viewer-title">
-  <span class="opal-h3">
+  <span class="tw-h3">
     {{ name }}
   </span>
 </span>

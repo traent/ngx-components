@@ -1,13 +1,16 @@
 $sidebar-width: 360px;
 
 :host {
-  display: block;
   width: var(--ngx-t3-right-sidebar-width, $sidebar-width);
   position: relative;
   background-color: white;
   transition: width 0.275s;
-  border-left: 1px solid var(--opal-grey-200);
+  border-left: 1px solid var(--tw-neutral-200);
   z-index: var(--ngx-t3-right-sidebar-z-index, 30);
+
+  &:not(.tw-hidden) {
+    display: block;
+  }
 
   &:not(.open) {
     width: 8px;
@@ -17,9 +20,9 @@ $sidebar-width: 360px;
     }
 
     > .handle {
-      background: var(--opal-grey-400);
-      border-color: var(--opal-grey-400);
-      color: var(--opal-white) !important;
+      background: var(--tw-neutral-400);
+      border-color: var(--tw-neutral-400);
+      color: white;
     }
   }
 
@@ -43,9 +46,9 @@ $sidebar-width: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--opal-grey-400);
-    background: var(--opal-grey-100);
-    border: 1px solid var(--opal-grey-200);
+    color: var(--tw-neutral-400);
+    background: var(--tw-neutral-100);
+    border: 1px solid var(--tw-neutral-200);
     border-radius: 4px 0px 0px 4px;
     box-sizing: border-box;
     cursor: pointer;

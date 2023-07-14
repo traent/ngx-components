@@ -1,6 +1,7 @@
 :host {
   --ngx-t3-tag-font-family: var(--font-family-brand, 'DM Sans', sans-serif);
-  --ngx-t3-tag-color: white;
+  --ngx-t3-tag-color: #000a;
+  --ngx-t3-tag-border-color: #00000018;
 
   $border-radius-md: 4px;
   $border-radius-sm: 2px;
@@ -11,27 +12,24 @@
   $padding-md: 2px 8px;
   $padding-sm: 0px 4px;
 
-  align-items: center;
+  line-height: 1rem !important;
   border-radius: $border-radius-md;
   color: var(--ngx-t3-tag-color);
-  display: flex;
   font-family: var(--ngx-t3-tag-font-family) !important;
   font-size: $font-size-md;
   min-height: $height-md;
   padding: $padding-md;
   box-sizing: border-box;
-
-  &.opal-ellipsed {
-    display: block;
-  }
+  border: 1px solid var(--ngx-t3-tag-border-color);
+  font-weight: 700;
 
   &:not(.chip) {
     text-transform: uppercase;
-    font-weight: bold;
   }
 
   &.chip {
     border-radius: 20px;
+    font-weight: 500;
   }
 
   &.sm {
@@ -40,5 +38,4 @@
     min-height: $height-sm;
     padding: $padding-sm;
   }
-
 }

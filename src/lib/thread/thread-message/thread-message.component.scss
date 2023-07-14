@@ -1,9 +1,9 @@
 :root {
-  --ngx-t3-thread-message-skeleton-bg-color: var(--opal-grey-100, white);
-  --ngx-t3-thread-message-bg-color: var(--opal-grey-100, white);
+  --ngx-t3-thread-message-skeleton-bg-color: var(--tw-neutral-100, white);
+  --ngx-t3-thread-message-bg-color: var(--tw-neutral-100, white);
   --ngx-t3-thread-message-max-width: 450px;
   --ngx-t3-thread-message-min-height: 86px;
-  --ngx-t3-thread-message-code-block-bg-color: rgba(var(--opal-black-500-rgb), 0.1) !important;
+  --ngx-t3-thread-message-code-block-bg-color: rgba(var(--tw-black),  0.1) !important;
 }
 
 :host {

@@ -1,6 +1,6 @@
 <ng-container *ngIf="isDataReady; else skeletonTemplate">
   <img
-    class="opal-s-full"
+    class="tw-w-full tw-h-full"
     [src]="!isAvailable ? placeholder : src">
   <div
     *ngIf="editable"
@@ -8,20 +8,20 @@
     <button
       *ngIf="!isAvailable"
       mat-icon-button
-      class="small center-icon opal-text-grey-400 opal-bg-white opal-border-1 opal-border-grey-200"
+      class="small center-icon !tw-text-neutral-400 !tw-bg-white tw-border !tw-border-neutral-200"
       type="button"
       [matTooltip]="editButtonTooltip"
       (click)="avatarInput.click()">
-      <mat-icon class="opal-s-4">cloud_upload</mat-icon>
+      <mat-icon class="tw-w-4 tw-h-4">cloud_upload</mat-icon>
     </button>
     <button
       *ngIf="isAvailable"
       mat-icon-button
-      class="small center-icon opal-text-grey-400 opal-bg-white opal-border-1 opal-border-grey-200"
+      class="small center-icon !tw-text-neutral-400 !tw-bg-white tw-border !tw-border-neutral-200"
       type="button"
       [matTooltip]="editButtonTooltip"
       [matMenuTriggerFor]="menu">
-      <mat-icon class="opal-s-4">edit</mat-icon>
+      <mat-icon class="tw-w-4 tw-h-4">edit</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
       <button
@@ -53,5 +53,5 @@
 </ng-container>
 
 <ng-template #skeletonTemplate>
-  <ngx-t3-skeleton class="opal-s-full"></ngx-t3-skeleton>
+  <ngx-t3-skeleton class="tw-w-full tw-h-full"></ngx-t3-skeleton>
 </ng-template>

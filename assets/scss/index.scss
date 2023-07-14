@@ -1,4 +1,7 @@
-@import "./tailwind.scss";
-@import "./avatar.scss";
-@import "./descriptions.scss";
-@import "./identity.scss";
+@import "../../../../node_modules/@traent/design-system/tailwind/scss/utils/_palette";
+
+@import "./tailwind";
+@import "./avatar";
+@import "./descriptions";
+@import "./identity";
+@import "./thing";

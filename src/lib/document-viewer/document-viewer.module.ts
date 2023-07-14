@@ -7,11 +7,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { NgClickOutsideDirective } from 'ng-click-outside2';
 
-import { AcksModule } from '../acks/acks.module';
-import { ApplyModule } from '../apply/apply.module';
-import { IconModule } from '../icon/icon.module';
-import { RedactedModule } from '../redacted/redacted.module';
-import { VisibleModule } from '../visible/visible.module';
 import { FormItemFillerComponent } from './components/form-item-filler/form-item-filler.component';
 import { FormItemHeadingComponent } from './components/form-item-heading/form-item-heading.component';
 import { GenericViewerComponent } from './components/generic-viewer/generic-viewer.component';
@@ -23,6 +18,11 @@ import { PdfTextContentComponent } from './components/pdf-text-content/pdf-text-
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { VideoViewerComponent } from './components/video-viewer/video-viewer.component';
 import { ViewerToolbarComponent } from './components/viewer-toolbar/viewer-toolbar.component';
+import { AcksModule } from '../acks/acks.module';
+import { ApplyModule } from '../apply/apply.module';
+import { IconModule } from '../icon/icon.module';
+import { RedactedModule } from '../redacted/redacted.module';
+import { VisibleModule } from '../visible/visible.module';
 
 const components = [
   GenericViewerComponent,
