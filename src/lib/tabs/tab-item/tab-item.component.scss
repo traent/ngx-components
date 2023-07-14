@@ -12,7 +12,7 @@
   box-sizing: border-box;
 
   color: var(--ngx-t3-tabs-color);
-  font-family: var(--font-family-brand);
+  font-family: theme('fontFamily.brand');
 
   &.active {
     color: var(--ngx-t3-tabs-active-color);

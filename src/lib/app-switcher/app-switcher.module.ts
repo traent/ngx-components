@@ -6,10 +6,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgClickOutsideDirective } from 'ng-click-outside2';
 
-import { IconModule } from '../icon/icon.module';
 import { AppLogoComponent } from './app-logo/app-logo.component';
 import { AppSwitcherComponent } from './app-switcher.component';
 import { AppTermsAndConditionsComponent } from './app-terms-and-conditions/app-terms-and-conditions.component';
+import { IconModule } from '../icon/icon.module';
 
 const icons = [
   ['identity-app', 'assets/icons/identity-app.svg'],

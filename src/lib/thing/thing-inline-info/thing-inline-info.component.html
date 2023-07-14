@@ -1,0 +1,27 @@
+<div
+  *ngIf="isDataReady; else loading"
+  class="tw-flex tw-flex-row tw-items-center tw-w-full">
+  <ngx-t3-thing-avatar
+    [size]="size"
+    [thingAvatar]="thingAvatar"
+    [thingInfo]="thingInfo"
+    [thingOrganizationLogo]="thingOrganizationLogo"></ngx-t3-thing-avatar>
+  <div
+    class="tw-flex tw-flex-col tw-w-full tw-truncate"
+    [ngClass]="size">
+    <div class="first-line tw-truncate">{{ thingName || labels.noName }}</div>
+    <div class="second-line tw-truncate">
+      <ng-content select="[second-line]"></ng-content>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <ngx-t3-skeleton class="tw-flex tw-flex-row tw-items-center tw-w-full">
+    <ngx-t3-avatar [size]="size"></ngx-t3-avatar>
+
+    <ngx-t3-skeleton
+      class="first-line tw-h-8 tw-w-full"
+      [ngClass]="size"></ngx-t3-skeleton>
+  </ngx-t3-skeleton>
+</ng-template>

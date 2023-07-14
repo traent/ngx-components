@@ -17,17 +17,17 @@
 
   <ng-container *ngIf="value | exported; else redactedValue">
     <ng-container *ngIf="value === undefined && innerType !== StreamEntryType.Boolean">
-      <span class="opal-d-block opal-text-grey-400 opal-text-style-italic">{{ labels.noValueLabel }}</span>
+      <span class="tw-block tw-text-neutral-400 tw-italic">{{ labels.noValueLabel }}</span>
     </ng-container>
 
     <ng-container *ngIf="value !== undefined || innerType === StreamEntryType.Boolean">
       <div
-        class="opal-w-full"
+        class="tw-w-full"
         [ngSwitch]="innerType">
         <div
           *ngSwitchCase="StreamEntryType.Boolean"
-          class="opal-fx-row opal-fx-align-center">
-          <mat-icon class="opal-s-4 opal-mr-1">
+          class="tw-flex tw-flex-row tw-items-center">
+          <mat-icon class="tw-w-4 tw-h-4 tw-mr-1">
             {{ value === true ? 'check_box' : 'check_box_outline_blank' }}
           </mat-icon>
           {{ (value ? labels.truthyCheckboxLabel : labels.falsyCheckboxLabel) | titlecase }}
@@ -56,7 +56,7 @@
   </ng-container>
 
   <ng-template #redactedValue>
-    <span class="opal-text-grey-400 opal-text-style-italic">{{ labels.redactedValueLabel }}</span>
+    <span class="tw-text-neutral-400 tw-italic">{{ labels.redactedValueLabel }}</span>
   </ng-template>
 
 </ng-template>

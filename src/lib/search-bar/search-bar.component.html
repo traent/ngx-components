@@ -1,13 +1,13 @@
 <div
-  class="search-bar opal-px-3 opal-fx-row opal-fx-align-center opal-bg-white opal-border-box"
-  [class.opal-radius-32]="shape === 'rounded'"
-  [class.opal-radius-4]="shape === 'squared'"
+  class="search-bar tw-px-3 tw-flex tw-flex-row tw-items-center tw-bg-white tw-box-border"
+  [class.!tw-rounded-[32px]]="shape === 'rounded'"
+  [class.!tw-rounded]="shape === 'squared'"
   [class.hasBorder]="hasBorder"
   [class.has-value]="query">
   <mat-icon>search</mat-icon>
   <input
-    class="opal-w-full opal-body-2"
     #searchInput
+    class="tw-w-full tw-text-sm"
     matInput
     [placeholder]="placeholder"
     [ngModel]="query"
@@ -15,7 +15,7 @@
   <ng-content select="[afterInput]"></ng-content>
   <mat-icon
     *ngIf="query || persistClose"
-    class="clear-icon opal-pointer"
+    class="clear-icon tw-cursor-pointer"
     (click)="innerQueryChange$.next(''); clearQuery.emit(); $event.stopPropagation()">
     clear
   </mat-icon>

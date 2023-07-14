@@ -7,11 +7,11 @@
   width: 100%;
 
   > :first-child {
-    border-color: var(--opal-grey-200, white);
+    border-color: var(--tw-neutral-200, white);
   }
 
   ngx-t3-skeleton {
-    background-color: var(--opal-grey-100, white) !important;
+    background-color: var(--tw-neutral-100, white) !important;
   }
 
   .placeholder-container {

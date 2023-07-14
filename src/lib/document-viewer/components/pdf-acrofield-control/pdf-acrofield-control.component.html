@@ -4,7 +4,7 @@
   <input
     *ngSwitchCase="AcrofieldType.Checkbox"
     type="checkbox"
-    [class.opal-pointer]="editable"
+    [class.tw-cursor-pointer]="editable"
     [disabled]="!editable"
     [checked]="value === true"
     (change)="_innerValue$.next($any($event.target).checked)">
@@ -69,9 +69,9 @@
 </ng-container>
 
 <ng-template #redactedField>
-  <div class="opal-h-full opal-fx-row opal-fx-align-center">
+  <div class="tw-h-full tw-flex tw-flex-row tw-items-center">
     <div
-      class="opal-ellipsed opal-text-style-italic"
+      class="tw-truncate tw-italic"
       [style.fontSize.px]="11 * zoom">
       {{ redactedValue }}
     </div>

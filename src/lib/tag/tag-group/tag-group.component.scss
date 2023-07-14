@@ -1,6 +1,6 @@
 :host {
-  --nxg-t3-tag-group-color: var(--opal-grey-400);
-  --nxg-t3-tag-group-border-color: var(--opal-grey-400);
+  --nxg-t3-tag-group-color: var(--tw-neutral-400);
+  --nxg-t3-tag-group-border-color: var(--tw-neutral-400);
 }
 
 .group-more {
@@ -16,10 +16,5 @@
   border: 1px solid var(--nxg-t3-tag-group-border-color);
   border-radius: 12px;
   padding: 0px 6px;
-  margin-left: 4px;
-}
-
-::ng-deep ngx-t3-tag:not(:first-of-type),
-::ng-deep .t3-tag-like:not(:first-of-type) {
   margin-left: 4px;
 }

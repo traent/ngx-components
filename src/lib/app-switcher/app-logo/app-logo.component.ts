@@ -10,5 +10,5 @@ export class AppLogoComponent {
   @Input() appName?: 'identity' | 'organizations' | 'era' | 'admin' | 'traent';
   @Input() appNameSecondary?: 'viewer';
   @Input() logoColor: 'black' | 'white' = 'black';
-  @Input() @HostBinding('class.opal-pointer') clickable = true;
+  @Input() @HostBinding('class.tw-cursor-pointer') clickable = true;
 }

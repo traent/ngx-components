@@ -4,7 +4,7 @@
   configuration: configuration$ | async
 } as resolved">
 
-  <div class="opal-w-full opal-d-block">
+  <div class="tw-w-full tw-block">
     <div
       *ngIf="resolved.form && resolved.type"
       [formGroup]="resolved.form">
@@ -20,15 +20,15 @@
           <ng-container [ngSwitch]="resolved.type">
             <!-- Text stream -->
             <ng-container *ngSwitchCase="StreamEntryType.Text">
-              <div class="opal-fx-row opal-fx-align-center">
+              <div class="tw-flex tw-flex-row tw-items-center">
                 <mat-form-field
-                  class="opal-fx-g-1 opal-mt-2"
+                  class="tw-grow tw-mt-2"
                   appearance="outline">
                   <textarea
                     cdkTextareaAutosize
                     matInput
                     formControlName="value"
-                    [placeholder]="translations.placeholders.text | translate"
+                    [placeholder]="translations.placeholders.text"
                     [cdkAutosizeMaxRows]="5">
                   </textarea>
                 </mat-form-field>
@@ -38,13 +38,13 @@
             <!-- Date stream -->
             <ng-container *ngSwitchCase="StreamEntryType.Date">
               <mat-form-field
-                class="opal-w-full mat-form-field-date opal-h-9"
+                class="tw-w-full mat-form-field-date tw-h-9"
                 appearance="outline">
                 <input
                   matInput
                   readonly
                   formControlName="value"
-                  [placeholder]="translations.placeholders.date | translate"
+                  [placeholder]="translations.placeholders.date"
                   [matDatepicker]="picker"
                   (click)="picker.open()">
                 <mat-datepicker-toggle
@@ -63,15 +63,18 @@
               *ngSwitchCase="StreamEntryType.Currency"
               [ngTemplateOutlet]="defaultNumberTemplate"></ng-container>
             <ng-template #defaultNumberTemplate>
-              <div class="opal-fx-row opal-fx-align-center">
+              <div class="number tw-flex tw-flex-row tw-items-center">
                 <mat-form-field
-                  class="opal-fx-g-1 opal-mt-2"
+                  class="tw-grow tw-mt-2"
                   appearance="outline">
                   <input
                     matInput
                     type="number"
                     formControlName="value"
-                    [placeholder]="(resolved.type === StreamEntryType.Number ? translations.placeholders.num : translations.placeholders.currency) | translate">
+                    [placeholder]="resolved.type === StreamEntryType.Number ? translations.placeholders.num : translations.placeholders.currency">
+                  <span
+                    *ngIf="resolved.type === StreamEntryType.Currency"
+                    matTextPrefix>{{ currencySymbol }}</span>
                 </mat-form-field>
               </div>
             </ng-template>
@@ -79,14 +82,14 @@
             <!-- URI stream -->
             <ng-container *ngSwitchCase="StreamEntryType.Uri">
               <mat-form-field
-                class="opal-w-full"
+                class="tw-w-full"
                 appearance="outline">
                 <input
                   matInput
                   formControlName="value"
-                  [placeholder]="translations.placeholders.uri | translate">
-                <mat-error class="opal-mt-n-1">
-                  {{ 'i18n.StreamFormDialog.urlError' | translate }}
+                  [placeholder]="translations.placeholders.uri">
+                <mat-error class="tw--mt-1">
+                  {{ translations.errors.url }}
                 </mat-error>
               </mat-form-field>
             </ng-container>
@@ -94,44 +97,52 @@
             <!-- Boolean stream -->
             <ng-container *ngSwitchCase="StreamEntryType.Boolean">
               <mat-checkbox
-                class="opal-d-block opal-w-fit opal-p-3"
+                class="tw-block tw-w-fit tw-p-3"
                 formControlName="value"
                 color="primary">
-              <span class="opal-text-capitalize">
-                {{ (resolved.form.controls.value.value ? translations.checkedValueLabel : translations.uncheckedValueLabel) | translate }}
-              </span>
+                <span class="tw-capitalize">
+                  {{ resolved.form.controls.value.value ? translations.checkedValueLabel : translations.uncheckedValueLabel }}
+                </span>
               </mat-checkbox>
             </ng-container>
 
             <!-- Dropdown stream -->
             <ng-container *ngSwitchCase="StreamEntryType.Dropdown">
-              <mat-radio-group
-                class="opal-fx-col"
-                formControlName="value">
-                <mat-radio-button
-                  *ngFor="let item of selectOptionsControl.controls"
-                  class="opal-h-8 opal-my-1 opal-mx-3"
-                  [value]="item.value">
-                  {{ item.value }}
-                </mat-radio-button>
-              </mat-radio-group>
+              <div class="tw-flex tw-flex-col">
+                <mat-radio-group
+                  class="tw-flex tw-flex-col"
+                  formControlName="value">
+                  <mat-radio-button
+                    *ngFor="let item of selectOptionsControl.controls"
+                    class="tw-h-8 tw-my-1 tw-mx-3"
+                    [value]="item.value">
+                    {{ item.value }}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="tw-flex tw-justify-end tw-mt-3 tw-pr-1">
+                <button
+                  mat-stroked-button
+                  class="small !tw-py-0 tw-h-6"
+                  (click)="patchValue(undefined)">{{ translations.clearSelection }}</button>
+              </div>
             </ng-container>
 
             <!-- MultiSelect stream -->
             <ng-container *ngSwitchCase="StreamEntryType.MultiSelect">
               <ngx-t3-stream-multi-select-control
                 formControlName="value"
-                class="opal-ml-3 opal-d-block"
+                class="!tw-ml-3 tw-block"
                 [options]="selectOptionsControl.value"></ngx-t3-stream-multi-select-control>
             </ng-container>
 
-            <div *ngSwitchDefault>{{ translations.notSupportedType | translate }}</div>
+            <div *ngSwitchDefault>{{ translations.notSupportedType }}</div>
           </ng-container>
         </ng-template>
       </ng-container>
 
       <ng-template #readonlyRenderer>
-        <div class="opal-ml-3">
+        <div class="!tw-ml-3">
           <ngx-t3-stream-value-renderer
             [value]="readonlyValue$ | async"
             [type]="resolved.type"
@@ -140,10 +151,10 @@
         </div>
       </ng-template>
 
-      <div class="opal-fx-row opal-fx-align-center">
+      <div class="tw-flex tw-flex-row tw-items-center">
         <div
           *ngIf="resolved.form.dirty && !resolved.form.valid"
-          class="opal-mt-2 opal-fx-row opal-fx-align-center opal-text-warn-500">
+          class="tw-mt-2 tw-flex tw-flex-row tw-items-center tw-text-warn-500">
           <ng-container
             *ngIf="resolved.configuration?.validator?.customErrorMessage as customMsg; else genericMsgs"
             [ngTemplateOutlet]="errorTemplate"
@@ -160,7 +171,7 @@
           <ng-template
             #errorTemplate
             let-value>
-            <mat-icon class="opal-mr-2 opal-s-6">info_outline</mat-icon>
+            <mat-icon class="tw-mr-2 tw-w-6 tw-h-6">info_outline</mat-icon>
             <div>{{ value }}</div>
           </ng-template>
         </div>

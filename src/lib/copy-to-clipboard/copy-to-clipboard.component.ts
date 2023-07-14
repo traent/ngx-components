@@ -13,7 +13,7 @@ export class CopyToClipboardComponent {
   @ViewChild('copyTooltip') copyTooltip?: MatTooltip;
 
   @Input() @HostBinding('class') size: IconSize = 'md';
-  @Input() additionalClasses = 'opal-pointer';
+  @Input() additionalClasses = 'tw-cursor-pointer';
   @Input() copiedTooltip = 'Copied';
   @Input() position: TooltipPosition = 'above';
   @Input() textToCopy?: string;

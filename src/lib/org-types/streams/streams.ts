@@ -1,7 +1,6 @@
 import { MaterialOrCustomIcon } from '../../icon/icon.component';
 
 export enum StreamEntryType {
-  Approval = 'approval',
   Date = 'date',
   Number = 'number', // eslint-disable-line
   Text = 'text',
@@ -13,7 +12,7 @@ export enum StreamEntryType {
   Json = 'json',
 }
 
-const streamEntryTypeIconMap: Record<Exclude<StreamEntryType, StreamEntryType.Approval>, MaterialOrCustomIcon> = {
+const streamEntryTypeIconMap: Record<StreamEntryType, MaterialOrCustomIcon> = {
   [StreamEntryType.Boolean]: { custom: 'checkbox' },
   [StreamEntryType.Currency]: { material: 'euro_symbol' },
   [StreamEntryType.Date]: { material: 'calendar_today' },
@@ -27,5 +26,5 @@ const streamEntryTypeIconMap: Record<Exclude<StreamEntryType, StreamEntryType.Ap
 
 export const getStreamTypeIcon = (type: string): MaterialOrCustomIcon =>
   type in streamEntryTypeIconMap
-    ? streamEntryTypeIconMap[type as Exclude<StreamEntryType, StreamEntryType.Approval>]
+    ? streamEntryTypeIconMap[type as StreamEntryType]
     : streamEntryTypeIconMap.json;

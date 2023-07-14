@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { IconModule } from '../icon/icon.module';
 import { WelcomeItemComponent } from './welcome-item.component';
+import { IconModule } from '../icon/icon.module';
 
 @NgModule({
   declarations: [ WelcomeItemComponent ],

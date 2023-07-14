@@ -3,7 +3,7 @@ ngx-t3-descriptions {
   --ngx-t3-descriptions-min-height: 40px;
 
   &.has-dividers > ngx-t3-description-item.has-divider {
-    border-bottom: 1px solid theme("colors.neutral.200");
+    border-bottom: 1px solid var(--tw-neutral-200);
   }
 
   ngx-t3-description-item {
@@ -38,6 +38,10 @@ ngx-t3-descriptions {
     .description {
       flex: 1;
       display: contents;
+
+      ngx-t3-realtime-list {
+        max-width: calc(100% - var(--ngx-t3-label-width));
+      }
     }
 
   }

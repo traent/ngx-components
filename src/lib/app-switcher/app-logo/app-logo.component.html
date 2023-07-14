@@ -1,14 +1,14 @@
 <img
+  alt="Traent Logo"
+  draggable="false"
   [src]="logoColor === 'white'
     ? '/assets/images/company-logo-white.svg'
-    : '/assets/images/company-logo.svg'"
-  alt="Traent Logo"
-  draggable="false">
-<h1 class="opal-h2 opal-my-0 opal-ml-1 opal-text-logo opal-text-bold">
+    : '/assets/images/company-logo.svg'">
+<h2 class="tw-my-0 !tw-ml-1 !tw-font-bold !tw-font-logo">
   {{ appName }}
   <span
     *ngIf="appNameSecondary"
-    class="opal-text-300">
+    class="tw-font-light">
     {{ appNameSecondary }}
   </span>
-</h1>
+</h2>

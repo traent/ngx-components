@@ -5,7 +5,7 @@
   $icon-size-sm: 9px;
 
   ngx-t3-skeleton {
-    background-color: var(--opal-grey-100, white) !important;
+    background-color: var(--tw-neutral-100, white) !important;
   }
 
   &.md {
@@ -40,7 +40,7 @@
 }
 
 ngx-t3-tag {
-  --ngx-t3-tag-color: var(--opal-black);
+  --ngx-t3-tag-color: var(--tw-black);
 }
 
 .mr-2px {

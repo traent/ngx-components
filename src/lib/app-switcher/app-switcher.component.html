@@ -1,4 +1,4 @@
-<div class="opal-fx-row opal-fx-align-center">
+<div class="tw-flex tw-flex-row tw-items-center">
   <button
     mat-icon-button
     (click)="isDrawerOpen = !isDrawerOpen; $event.stopPropagation()">
@@ -9,24 +9,24 @@
 
 <div
   *ngIf="isDrawerOpen"
-  class="drawer opal-fx-col opal-bg-white opal-radius-8 opal-border-1 opal-border-grey-200 opal-overflow-hidden"
+  class="drawer tw-flex tw-flex-col tw-bg-white !tw-rounded-lg tw-border tw-border-neutral-200 tw-overflow-hidden"
   [@inOutAnimation]
   (clickOutside)="isDrawerOpen = false; $event.stopPropagation()">
 
-  <div class="opal-px-4 opal-pt-3 opal-pb-1 opal-overline opal-text-grey-400">Switch to</div>
+  <div class="tw-px-4 tw-pt-3 tw-pb-1 tw-t3-text-overline tw-text-neutral-400">Switch to</div>
 
   <ng-container *ngFor="let props of [this.identityProps, this.organizationsProps, this.eraProps, this.viewerProps]">
     <a
       *ngIf="!props.disabled && props.url?.includes('http')"
+      class="tw-contents"
       [href]="props.url"
-      class="opal-d-contents"
       (click)="closeDrawer()">
       <ng-container *ngTemplateOutlet="appItem; context: { $implicit: props }"></ng-container>
     </a>
     <a
       *ngIf="!props.disabled && props.url && !props.url.includes('http')"
+      class="tw-contents"
       [routerLink]="props.url"
-      class="opal-d-contents"
       (click)="closeDrawer()">
       <ng-container *ngTemplateOutlet="appItem; context: { $implicit: props }"></ng-container>
     </a>
@@ -35,7 +35,9 @@
     </ng-container>
   </ng-container>
 
-  <ng-content select="[app-footer]"></ng-content>
+  <div class="tw-border-t-1 tw-h-10 tw-flex tw-flex-row tw-text-grey-400 tw-items-center tw-border-grey-100 tw-px-3">
+    <ng-content select="[app-footer]"></ng-content>
+  </div>
 
   <ng-template
     #appItem
@@ -47,12 +49,12 @@
       <div class="icon-wrapper">
         <ngx-t3-icon
           *ngIf="props.icon"
-          class="opal-text-traentblue-500"
-          [class.opal-text-grey-400]="props.disabled"
+          class="tw-text-traent-500"
+          [class.tw-text-neutral-400]="props.disabled"
           [icon]="props.icon"></ngx-t3-icon>
       </div>
       <div class="text-wrapper">
-        <h3 class="opal-h5 opal-m-0">{{ props.name }}</h3>
+        <h5 class="tw-m-0">{{ props.name }}</h5>
         <p>{{ props.description }}</p>
       </div>
     </div>

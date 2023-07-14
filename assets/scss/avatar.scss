@@ -8,7 +8,7 @@ $_xl: 102px;
 
 ngx-t3-avatar {
   background: #fff8;
-  border: 1px solid theme("colors.neutral.100");
+  border: 1px solid var(--tw-neutral-100);
   box-sizing: border-box;
 }
 

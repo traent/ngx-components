@@ -6,7 +6,7 @@
 .search-bar {
   height: var(--ngx-t3-search-bar-height);
   &.hasBorder {
-    border: var(--ngx-t3-search-bar-outline-bar-width) solid var(--opal-grey-200);
+    border: var(--ngx-t3-search-bar-outline-bar-width) solid var(--tw-neutral-200);
   }
   &:focus-within, .has-value {
     &.hasBorder {
@@ -30,6 +30,6 @@
     height: 18px;
     width: 18px;
     font-size: 18px;
-    color: var(--opal-grey-400);
+    color: var(--tw-neutral-400);
   }
 }

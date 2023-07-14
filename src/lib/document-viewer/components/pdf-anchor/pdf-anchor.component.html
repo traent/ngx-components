@@ -32,22 +32,22 @@
       <ng-container *ngFor="let range of anchor.ranges">
         <div
           *ngFor="let block of range.blocks; first as firstBlock; last as lastBlock"
-          class="opal-pos-abs phantom"
+          class="tw-absolute phantom"
           [style.top.px]="pages[block.pageNumber - 1]?.top"
           [style.left.px]="pages[block.pageNumber - 1]?.left"
           [style.width.px]="pages[block.pageNumber - 1]?.width"
           [style.height.px]="pages[block.pageNumber - 1]?.height">
           <div
             *ngFor="let line of block.lines; first as firstLine; last as lastLine"
-            class="opal-pos-abs phantom"
+            class="tw-absolute phantom"
             [style.top.%]="100 * line.top"
             [style.left.%]="100 * line.left"
             [style.width.%]="100 * line.width"
             [style.height.%]="100 * line.height">
             <div
-              class="highlight opal-pointer opal-pos-abs opal-border-t-2 opal-border-b-2 opal-bg-accent-500 opal-bg-opacity-25 opal-border-accent phantom opal-inset-0"
-              [class.opal-border-r-2]="lastLine"
-              [class.opal-border-l-2]="firstLine"
+              class="highlight tw-cursor-pointer tw-absolute tw-border-t tw-border-b tw-bg-accent-500 tw-bg-opacity-25 tw-border-accent phantom tw-inset-0"
+              [class.tw-border-r-2]="lastLine"
+              [class.tw-border-l-2]="firstLine"
               [style.left.%]="100 * (firstBlock && firstLine ? range.start.x : 0)"
               [style.right.%]="100 * (lastBlock && lastLine ? 1 - range.end.x : 0)"></div>
           </div>

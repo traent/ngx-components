@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { GrowingSearchBarComponent } from './growing-search-bar.component';
 import { AutofocusModule } from '../autofocus/autofocus.module';
 import { SearchBarModule } from '../search-bar/search-bar.module';
-import { GrowingSearchBarComponent } from './growing-search-bar.component';
 
 @NgModule({
   declarations: [

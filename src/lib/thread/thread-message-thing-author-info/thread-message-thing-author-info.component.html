@@ -1,0 +1,19 @@
+<div class="tw-flex tw-flex-row tw-items-center">
+  <ngx-t3-thing-avatar
+    [thingAvatar]="thingAvatar"
+    [thingInfo]="thingInfo"
+    [thingOrganizationLogo]="thingOrganizationLogo"
+    [size]="avatarSize"></ngx-t3-thing-avatar>
+
+  <div
+    *ngIf="isDataReady; else skeletonNameTemplate"
+    class="tw-ml-2 tw-h6 tw-font-medium">
+    {{ thingName || labels.noName }}
+  </div>
+
+  <ng-content #menu></ng-content>
+
+  <ng-template #skeletonNameTemplate>
+    <ngx-t3-skeleton class="tw-ml-2 tw-text-sm tw-w-20 tw-h-3"></ngx-t3-skeleton>
+  </ng-template>
+</div>

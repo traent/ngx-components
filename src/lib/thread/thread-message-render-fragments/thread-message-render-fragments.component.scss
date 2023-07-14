@@ -5,20 +5,20 @@
 .message-content-tag {
   align-items: center;
   background-color: var(--ngx-t3-thread-message-render-tag-bg-color);
-  border-radius: 4px;
   display: inline-flex;
-  height: 19px;
   line-height: 19px;
   max-width: 100%;
-  padding: 0px 4px;
-  width: fit-content;
-  transform: translateY(2px);
+  border: 1px solid #0001;
+  color: #000d;
+  border-radius: 100px;
+  font-size: 14px;
+  vertical-align: middle;
 
   > ngx-t3-icon ::ng-deep > mat-icon {
     flex-shrink: 0;
-    font-size: 13px;
-    height: 12px;
-    width: 12px;
+    font-size: 1rem !important;
+    height: 1rem;
+    width: 1rem;
     &:first-of-type {
       margin-right: 4px;
     }
@@ -27,9 +27,7 @@
 
 .reduced {
   display: block;
-  white-space: nowrap!important;
   overflow: hidden;
-  word-break: break-word !important;
-  text-overflow: ellipsis;
+  word-break: break-all !important;
   flex-shrink: 0;
 }

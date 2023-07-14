@@ -3,12 +3,12 @@ input, select, textarea {
   padding: 0px;
   margin: 0px;
   border: none;
-  outline: var(--opal-accent) 1px solid;
+  outline: var(--tw-accent-500) 1px solid;
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--opal-blue-rgb), 0.25);
+  background-color: rgba(var(--tw-blue-rgb), 0.25);
   box-sizing: border-box;
-  font-family: var(--font-family-content);
+  font-family: theme('fontFamily.content');
   resize: none;
 
   &:focus {

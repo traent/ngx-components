@@ -3,9 +3,9 @@
   [matTooltip]="userValidation.message"
   [svgIcon]="userValidation.state | apply : getValidationIcon"
   [ngClass]="{
-    'opal-text-grey-200': userValidation.state === IdentityValidationState.None,
-    'opal-text-accent': userValidation.state === IdentityValidationState.Valid,
-    'opal-text-red': userValidation.state === IdentityValidationState.Invalid
+    'tw-text-neutral-200': userValidation.state === IdentityValidationState.None,
+    'tw-text-accent': userValidation.state === IdentityValidationState.Valid,
+    'tw-text-red': userValidation.state === IdentityValidationState.Invalid
   }"></mat-icon>
 
 <mat-icon
@@ -13,9 +13,9 @@
   [matTooltip]="memberValidation.message"
   [svgIcon]="memberValidation.state | apply : getValidationIcon"
   [ngClass]="{
-    'opal-text-grey-200': memberValidation.state === IdentityValidationState.None,
-    'opal-text-green': memberValidation.state === IdentityValidationState.Valid,
-    'opal-text-red': memberValidation.state === IdentityValidationState.Invalid
+    'tw-text-neutral-200': memberValidation.state === IdentityValidationState.None,
+    'tw-text-green': memberValidation.state === IdentityValidationState.Valid,
+    'tw-text-red': memberValidation.state === IdentityValidationState.Invalid
   }"></mat-icon>
 
 <mat-icon
@@ -23,7 +23,7 @@
   [matTooltip]="orgValidation.message"
   [svgIcon]="orgValidation.state | apply : getValidationIcon"
   [ngClass]="{
-    'opal-text-grey-200': orgValidation.state === IdentityValidationState.None,
-    'opal-text-accent': orgValidation.state === IdentityValidationState.Valid,
-    'opal-text-red': orgValidation.state === IdentityValidationState.Invalid
+    'tw-text-neutral-200': orgValidation.state === IdentityValidationState.None,
+    'tw-text-accent': orgValidation.state === IdentityValidationState.Valid,
+    'tw-text-red': orgValidation.state === IdentityValidationState.Invalid
   }"></mat-icon>

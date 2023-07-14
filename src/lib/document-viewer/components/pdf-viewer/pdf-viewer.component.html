@@ -11,11 +11,11 @@
         #rectVisible="ngxT3Visible"
         ngxT3Visible
         intersectionRootMargin="300% 300%"
-        id="page-{{page.pageNumber}}"
         class="pdf-viewer-page"
+        id="page-{{page.pageNumber}}"
         [intersectionRoot]="viewport"
         [attr.data-number]="page.pageNumber"
-        [class.opal-mb-5]="!last"
+        [class.tw-mb-5]="!last"
         [style.width.px]="page.getViewport({ scale: zoom }).width"
         [style.height.px]="page.getViewport({ scale: zoom }).height">
 

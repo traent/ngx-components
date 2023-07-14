@@ -1,0 +1,12 @@
+<a
+  class="tw-flex tw-items-center"
+  target="_blank"
+  [href]="url">
+  <span class="tw-text-grey-400 tw-mr-1 tw-text-xs">{{text}}</span>
+  <mat-icon [ngClass]="{
+    'tw-text-gray-600': !status,
+    'tw-text-green-500': status === HealthStatus.Healthy,
+    'tw-text-yellow-500': status === HealthStatus.Degraded,
+    'tw-text-red-500': status === HealthStatus.Unhealthy
+  }">circle</mat-icon>
+</a>

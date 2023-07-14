@@ -4,15 +4,15 @@ import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { ApplyModule } from '../apply/apply.module';
-import { AvatarModule } from '../avatar/avatar.module';
-import { IconModule } from '../icon/icon.module';
-import { SkeletonModule } from '../skeleton/skeleton.module';
 import { IdentityValidationComponent } from './identity-validation/identity-validation.component';
 import { MemberAvatarGroupComponent } from './member-avatar-group/member-avatar-group.component';
 import { MemberIdentityComponent } from './member-identity/member-identity.component';
 import { OrganizationIdentityComponent } from './organization-identity/organization-identity.component';
 import { UserIdentityComponent } from './user-identity/user-identity.component';
+import { ApplyModule } from '../apply/apply.module';
+import { AvatarModule } from '../avatar/avatar.module';
+import { IconModule } from '../icon/icon.module';
+import { SkeletonModule } from '../skeleton/skeleton.module';
 
 const icons = [
   ['validation-invalid', 'assets/icons/validation-invalid.svg'],

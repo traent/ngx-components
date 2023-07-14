@@ -1,8 +1,8 @@
 <div
   *ngFor="let option of form.controls; index as index"
-  class="opal-fx-row opal-fx-align-center opal-my-3">
+  class="tw-flex tw-flex-row tw-items-center tw-my-3">
   <mat-checkbox
     [formControl]="option"
     (change)="onChange()"></mat-checkbox>
-  <p class="opal-my-0">{{ options[index] }}</p>
+  <p class="tw-my-0">{{ options[index] }}</p>
 </div>

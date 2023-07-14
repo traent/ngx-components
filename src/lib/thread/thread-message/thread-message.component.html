@@ -1,10 +1,10 @@
 <div *ngIf="isDataReady; else skeletonTemplate">
   <div
     *ngIf="isCopy"
-    class="opal-fx-row opal-fx-align-center opal-p-2 opal-mb-2 opal-bg-red-100 opal-radius-8 opal-body-2">
+    class="tw-flex tw-flex-row tw-items-center tw-p-2 tw-mb-2 tw-bg-red-100 !tw-rounded-lg tw-text-sm">
     <mat-icon
-      [matTooltip]="labels.isCopy"
-      class="opal-mr-3 opal-s-4">
+      class="tw-mr-3 tw-w-4 tw-h-4"
+      [matTooltip]="labels.isCopy">
       info
     </mat-icon>
     {{ labels.authenticity }}
@@ -13,9 +13,9 @@
   <ng-content select="[author]"></ng-content>
 
   <div
-    class="opal-fx-col opal-w-full opal-overflow-hidden"
-    [class.opal-opacity-60]="status === ThreadMessageStatus.Sent">
-    <div class="opal-text-break-spaces opal-text-break-word message-content-container">
+    class="tw-flex tw-flex-col tw-w-full tw-overflow-hidden"
+    [class.tw-opacity-60]="status === ThreadMessageStatus.Sent">
+    <div class="tw-whitespace-pre-wrap tw-break-words message-content-container">
       <ng-template #simpleRendererMessageTemplate>
         <span>{{ message }}</span>
       </ng-template>
@@ -26,25 +26,25 @@
 
   <div
     *ngIf="mode === 'complete'"
-    class="opal-mt-2 opal-fx-row opal-fx-align-center opal-fx-justify-end">
+    class="tw-mt-2 tw-flex tw-flex-row tw-items-center tw-justify-end">
     <span
       *ngIf="status !== ThreadMessageStatus.Failed"
-      class="opal-text-grey-400 opal-body-3 opal-text-400">
+      class="tw-text-neutral-400 tw-text-xs tw-font-normal">
       {{ createdAt || labels.noCreatedAt }}
     </span>
 
     <mat-icon
       *ngIf="status === ThreadMessageStatus.Sent"
-      class="opal-ml-2 opal-s-3 opal-text-grey-400">
+      class="tw-ml-2 tw-w-3 tw-h-3 tw-text-neutral-400">
       hourglass_top
     </mat-icon>
 
     <div
       *ngIf="status === ThreadMessageStatus.Failed"
-      class="opal-body-3 opal-text-red opal-text-600">
+      class="tw-text-xs tw-text-red tw-font-semibold">
       {{ labels.notDelivered }}
       <a
-        class="opal-pointer opal-text-underline"
+        class="tw-cursor-pointer tw-underline"
         (click)="retry.emit()">
         {{ labels.retry }}
       </a>

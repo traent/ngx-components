@@ -1,18 +1,20 @@
 <div
   *ngIf="isDataReady; else skeletonTemplate"
-  class="opal-fx-row opal-fx-align-center opal-body-2">
+  class="tw-flex tw-flex-row tw-gap-1 tw-items-center tw-text-sm tw-w-full"
+  [ngClass]="extension ? 'tw-justify-between' : 'tw-justify-end'">
   <ngx-t3-tag
     *ngIf="extension"
-    class="opal-bg-blue-200"
+    class="tw-bg-blue-200"
+    [chip]="false"
     [size]="size">
     {{ extension }}
   </ngx-t3-tag>
-  <div class="opal-fx-row opal-fx-center opal-text-grey-400 opal-body-2">
+  <div class="tw-flex tw-flex-row tw-items-center tw-justify-center tw-text-neutral-400 tw-text-sm">
     <div
       *ngIf="versionsCount !== null && versionsCount !== undefined"
-      class="opal-fx-row opal-fx-align-center detail">
+      class="tw-flex tw-flex-row tw-items-center detail">
       <mat-icon
-        class="opal-mr-2px"
+        class="tw-mr-2px"
         [matTooltip]="tooltips.versionsTooltip">
         history
       </mat-icon>
@@ -20,19 +22,19 @@
     </div>
     <div
       *ngIf="streamsCount !== null && streamsCount !== undefined"
-      class="opal-fx-row opal-fx-align-center detail">
+      class="tw-flex tw-flex-row tw-items-center detail">
       <mat-icon
-        class="stream-icon opal-mr-2px"
+        class="stream-icon tw-mr-2px"
         svgIcon="stream-overview"
         [matTooltip]="tooltips.streamsTooltip">
       </mat-icon>
-    {{ streamsCount || 0 }}
+      {{ streamsCount || 0 }}
     </div>
     <div
       *ngIf="threadsCount !== null && threadsCount !== undefined"
-      class="opal-fx-row opal-fx-align-center detail">
+      class="tw-flex tw-flex-row tw-items-center detail">
       <mat-icon
-        class="material-icons-outlined opal-mr-2px"
+        class="material-icons-outlined tw-mr-2px"
         [matTooltip]="tooltips.threadsTooltip">
         forum
       </mat-icon>
@@ -40,9 +42,9 @@
     </div>
     <div
       *ngIf="tagsCount !== null && tagsCount !== undefined"
-      class="opal-fx-row opal-fx-align-center detail">
+      class="tw-flex tw-flex-row tw-items-center detail">
       <mat-icon
-        class="material-icons-outlined opal-mr-2px"
+        class="material-icons-outlined tw-mr-2px"
         [matTooltip]="tooltips.tagsTooltip">
         label
       </mat-icon>
@@ -53,7 +55,7 @@
 
 <ng-template #skeletonTemplate>
   <ngx-t3-skeleton
-    class="opal-h-4"
+    class="tw-h-4"
     [ngClass]="{
       'w-37': size === 'md',
       'w-31': size === 'sm'

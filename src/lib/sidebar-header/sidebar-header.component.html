@@ -1,6 +1,6 @@
 <ng-container *ngIf="backToLabel">
   <span
-    class="back-to opal-ellipsed opal-text-grey-400 opal-mb-3"
+    class="back-to tw-truncate tw-text-neutral-400 tw-mb-3"
     [ngClass]="backToElement"
     (click)="backTo.emit()">
     {{ backToLabel }}
@@ -49,5 +49,5 @@
 </div>
 
 <ng-template #labelTemplate>
-  <span [class.opal-ellipsed]="ellipsed">{{ label }}</span>
+  <span [class.tw-truncate]="ellipsed">{{ label }}</span>
 </ng-template>

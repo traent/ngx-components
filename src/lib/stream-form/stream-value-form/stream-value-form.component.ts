@@ -26,6 +26,7 @@ export const defaultStreamValueFormTranslations = {
     minlength: (requiredLength: string) => `Length must be greater or equal to ${requiredLength}`,
     pattern: (requiredPattern: string) => `Required pattern is ${requiredPattern}`,
     required: 'This field is required',
+    url: 'Enter a valid URL address preceded by http:// or https://',
   },
   placeholders: {
     currency: 'Currency',
@@ -37,6 +38,7 @@ export const defaultStreamValueFormTranslations = {
   checkedValueLabel: 'checked',
   uncheckedValueLabel: 'unchecked',
   notSupportedType: 'Not supported stream type',
+  clearSelection: 'Clear Selection',
 };
 
 @Component({
@@ -62,15 +64,19 @@ export class StreamValueFormComponent {
     this.configuration$.next(configuration);
   }
 
-  /** Set this input will override the current form stream value */
-  @Input() set formValue(value: any) {
+  /** Set this input will override the current form stream value and configuration */
+  @Input() set formValue(formValue: any) {
     const form = this.form$.value;
     if (!form) {
       return;
     }
     const valueControl = form.get('value');
     if (valueControl) {
-      valueControl.patchValue(value);
+      valueControl.patchValue(formValue?.value);
+    }
+    const configurationControl = form.get('configuration');
+    if (configurationControl) {
+      configurationControl.patchValue(formValue?.configuration);
     }
   }
 
@@ -86,6 +92,10 @@ export class StreamValueFormComponent {
 
   get selectOptionsControl(): FormArray {
     return (this.form$?.value?.controls.configuration as FormGroup).controls.allowedValues as FormArray;
+  }
+
+  get currencySymbol(): string | undefined {
+    return (this.form$?.value?.controls.configuration as FormGroup).controls?.symbol?.value;
   }
 
   get formErrors(): string[] {
@@ -133,6 +143,12 @@ export class StreamValueFormComponent {
   readonly getStreamTypeIcon = getStreamTypeIcon;
   readonly StreamEntryType = StreamEntryType;
 
-
   constructor(private readonly datePipe: DatePipe) { }
+
+  patchValue(value: any) {
+    const valueControl = this.form$.value?.get('value');
+    if (valueControl) {
+      valueControl.patchValue(value);
+    }
+  }
 }

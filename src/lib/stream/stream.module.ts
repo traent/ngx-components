@@ -6,18 +6,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { ApplyModule } from '../apply/apply.module';
-import { RedactedModule } from '../redacted/redacted.module';
-import { SkeletonModule } from '../skeleton/skeleton.module';
 import {
   StreamRadioRenderingComponent,
 } from './stream-value-renderer/stream-radio-rendering/stream-radio-rendering.component';
 import { StreamValueRendererComponent } from './stream-value-renderer/stream-value-renderer.component';
 import { StreamComponent } from './stream.component';
+import { ApplyModule } from '../apply/apply.module';
+import { RedactedModule } from '../redacted/redacted.module';
+import { SkeletonModule } from '../skeleton/skeleton.module';
 
 const icons = [
   ['stream-overview', 'assets/icons/stream-overview.svg'],
-  ['approval', 'assets/icons/approval.svg'],
 ];
 
 @NgModule({

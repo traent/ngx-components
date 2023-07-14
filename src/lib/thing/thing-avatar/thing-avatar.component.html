@@ -1,0 +1,31 @@
+<div
+  *ngIf="isDataReady; else loading"
+  class="tw-flex tw-flex-row tw-items-center tw-w-full">
+  <ngx-t3-avatar-group>
+    <ngx-t3-avatar
+      *ngIf="thingAvatar; else showIcon"
+      [size]="size"
+      [src]="thingAvatar"></ngx-t3-avatar>
+    <ng-template #showIcon>
+      <div
+        class="icon tw-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-pink-100"
+        [ngClass]="size">
+        <mat-icon
+          class="!tw-text-pink-600 tw-m-0"
+          [svgIcon]="thingInfo?.svgIcon || ''"
+          [fontIcon]="thingInfo?.icon || ''"></mat-icon>
+      </div>
+    </ng-template>
+    <ngx-t3-avatar
+      *ngIf="thingOrganizationLogo"
+      [size]="size"
+      [src]="thingOrganizationLogo"
+      [placeholder]="AvatarPlaceholder.Organization"></ngx-t3-avatar>
+  </ngx-t3-avatar-group>
+</div>
+
+<ng-template #loading>
+  <ngx-t3-skeleton class="tw-flex tw-flex-row tw-items-center tw-w-full">
+    <ngx-t3-avatar [size]="size"></ngx-t3-avatar>
+  </ngx-t3-skeleton>
+</ng-template>

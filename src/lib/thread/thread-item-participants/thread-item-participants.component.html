@@ -7,16 +7,16 @@
 
   <div
     *ngIf="countDefined > 1"
-    class="opal-s-8 opal-rounded opal-bg-grey-200 opal-fx-col opal-fx-center opal-body-3 opal-text-grey-400">
-    <mat-icon class="opal-mb-n-1 opal-s-4">people</mat-icon>
+    class="tw-w-8 tw-h-8 !tw-rounded-[50%] tw-bg-neutral-200 tw-flex tw-flex-col tw-flex tw-items-center tw-justify-center tw-text-xs tw-text-neutral-400">
+    <mat-icon class="tw--mb-1 tw-w-4 tw-h-4">people</mat-icon>
     {{ count }}
   </div>
 
   <div
     *ngIf="count === undefined || (countDefined <= 1 && creatorAvatar === undefined)"
-    class="opal-s-8 opal-rounded opal-bg-grey-200 opal-fx-col opal-fx-center opal-body-3 opal-text-grey-400">
+    class="tw-w-8 tw-h-8 !tw-rounded-[50%] tw-bg-neutral-200 tw-flex tw-flex-col tw-flex tw-items-center tw-justify-center tw-text-xs tw-text-neutral-400">
     <mat-icon
-      class="opal-mb-n-1 opal-s-6"
+      class="tw--mb-1 tw-w-6 tw-h-6"
       svgIcon="thread-reference">
     </mat-icon>
   </div>
